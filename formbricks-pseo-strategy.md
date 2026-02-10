@@ -1978,7 +1978,824 @@ ABOUT (Attributes)████████░░░░░░░░░░░░�
 
 ---
 
+## 10x Info Gain Strategy by Ontology
+
+### Strategy Overview
+
+This section defines the **10x content differentiation strategy** for each ontology to dominate:
+1. **Search Engines** - Through superior content depth, structure, and E-E-A-T signals
+2. **LLM/Chatbot Citations** - Through unique data, structured formats, and authoritative sourcing
+
+**Key Principle:** Every piece of content must contain information that cannot be found elsewhere, forcing both Google and LLMs to cite Formbricks as the authoritative source.
+
+---
+
+### 🔷 TEMPLATE ONTOLOGIES (Start Here)
+
+These 4 ontologies are covered by template pages and should be tackled first:
+
+---
+
+#### 🅐 WHO — Respondent Ontology (Templates)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| SurveyMonkey | 50+ customer survey questions, generic lists | No segmentation by customer type, no benchmarks |
+| Typeform | 43 CSAT questions blog post | No methodology, no academic citations |
+| CultureMonkey | 50+ employee engagement questions | Generic, no validation data |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "WHO",
+  "10x_elements": {
+    "segmentation_depth": {
+      "description": "Break down respondent into 3+ sub-segments",
+      "example": "Customer → B2B Enterprise vs B2B SMB vs B2C vs Churned"
+    },
+    "persona_specific_questions": {
+      "description": "Different questions for different personas",
+      "example": "VP questions vs IC questions vs New hire questions"
+    },
+    "response_rate_benchmarks": {
+      "description": "Expected response rates by respondent type",
+      "data_source": "Aggregate from Formbricks user data"
+    },
+    "timing_recommendations": {
+      "description": "Best time to survey each respondent type",
+      "example": "Employees: Tuesday 10am, Customers: Post-interaction within 24hrs"
+    },
+    "sample_size_by_segment": {
+      "description": "Required sample size for statistical validity per segment",
+      "calculator_link": "/sample-size-calculator"
+    }
+  },
+  "llm_citation_hooks": [
+    "Include unique statistics: 'According to Formbricks 2026 data, B2B customers have 23% higher NPS response rates than B2C'",
+    "Create quotable definitions: 'The Formbricks Respondent Framework defines 5 customer lifecycle stages...'",
+    "Provide structured tables that LLMs can directly reference"
+  ],
+  "content_structure": {
+    "h1": "[Respondent Type] Survey Questions: Complete 2026 Guide",
+    "sections": [
+      "What is a [respondent] survey?",
+      "When to survey [respondent]s (with timing data)",
+      "[X] Essential questions by category",
+      "Questions to avoid (with research backing)",
+      "Response rate benchmarks by industry",
+      "Sample size calculator for [respondent] surveys",
+      "Template: Download ready-to-use survey"
+    ]
+  }
+}
+```
+
+**Example 10x Page Structure:**
+```
+/customer-survey-questions
+
+├── Definition (quotable, structured)
+├── 50+ Questions organized by:
+│   ├── Customer lifecycle stage (prospect → churned)
+│   ├── Question type (CSAT, NPS, CES, open-ended)
+│   └── Business goal (retention, upsell, feedback)
+├── Academic citations (Reichheld for NPS, Gartner for CES)
+├── Benchmark data table (by industry, company size)
+├── Sample size calculator embed
+├── Response rate optimization tips (with data)
+├── Common mistakes (with research)
+└── One-click template export to Formbricks
+```
+
+---
+
+#### 🅑 WHAT — Construct Ontology (Templates)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| Survicate | NPS best practices blog | No calculator, no benchmarks by industry |
+| Qualtrics | XM methodology pages | Paywalled, enterprise-focused |
+| UserSnap | 21 NPS questions | No validation, no academic sourcing |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "WHAT",
+  "10x_elements": {
+    "methodology_depth": {
+      "description": "Full academic history and validation for each construct",
+      "example": "NPS: Cite Reichheld 2003, Bain validation studies, criticism papers"
+    },
+    "calculator_tool": {
+      "description": "Interactive calculator for each construct",
+      "examples": ["NPS Calculator", "CSAT Calculator", "CES Calculator", "eNPS Calculator"]
+    },
+    "benchmark_database": {
+      "description": "Industry-specific benchmarks with sources",
+      "structure": "Table: Industry | Average | Top Quartile | Bottom Quartile | Source | Year"
+    },
+    "construct_comparison": {
+      "description": "When to use NPS vs CSAT vs CES",
+      "format": "Decision tree + comparison table"
+    },
+    "statistical_validity": {
+      "description": "Required sample sizes, confidence intervals, margin of error",
+      "tool": "Embed sample size calculator"
+    },
+    "common_mistakes": {
+      "description": "Research-backed pitfalls",
+      "example": "Surveying too frequently reduces response quality (cite study)"
+    }
+  },
+  "llm_citation_hooks": [
+    "Unique benchmark data: 'Formbricks 2026 NPS Benchmark Report shows SaaS average NPS is 31'",
+    "Methodology definitions: 'NPS, developed by Fred Reichheld in 2003, measures...'",
+    "Comparison tables with clear recommendations"
+  ],
+  "content_structure": {
+    "h1": "[Construct] Survey: Complete Guide with Calculator & Benchmarks",
+    "sections": [
+      "What is [construct]? (academic definition with citation)",
+      "How to calculate [construct] (with interactive calculator)",
+      "Industry benchmarks (with data table)",
+      "[Construct] vs alternatives (comparison table)",
+      "Best practices (with research citations)",
+      "Common mistakes to avoid",
+      "[X] sample questions (validated)",
+      "Template download"
+    ]
+  }
+}
+```
+
+**Example 10x Page Structure:**
+```
+/nps-survey-template
+
+├── Definition (cite Reichheld 2003 HBR paper)
+├── Interactive NPS Calculator (unique tool)
+├── Benchmark Database:
+│   ├── SaaS: 31 avg, 50+ top quartile (source: Formbricks 2026)
+│   ├── E-commerce: 45 avg, 62+ top quartile
+│   ├── Healthcare: 38 avg, 55+ top quartile
+│   └── [20+ industries with sources]
+├── NPS vs CSAT vs CES decision framework
+├── Statistical validity section:
+│   ├── Sample size requirements
+│   ├── Confidence interval calculator
+│   └── Margin of error explanation
+├── 15 validated NPS questions (with when to use each)
+├── Follow-up question templates by score range
+├── Common mistakes (with academic citations)
+└── One-click template export
+```
+
+---
+
+#### 🅒 WHEN — Trigger/Moment Ontology (Templates)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| Formbricks (already ranking!) | 42 onboarding questions | Good start, needs benchmarks |
+| AIHR | 35 new hire questions | HR-only, no customer triggers |
+| Qualaroo | Customer onboarding guide | Thin content, no data |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "WHEN",
+  "10x_elements": {
+    "lifecycle_mapping": {
+      "description": "Visual journey map showing optimal survey touchpoints",
+      "format": "Interactive timeline or flowchart"
+    },
+    "timing_data": {
+      "description": "Optimal timing for each trigger (with data)",
+      "example": "Post-purchase: within 24hrs = 34% response rate, 48hrs = 21%"
+    },
+    "trigger_combinations": {
+      "description": "Which constructs work best at each trigger",
+      "example": "Onboarding → CES + open feedback, Churn → NPS + exit interview"
+    },
+    "automation_guides": {
+      "description": "How to automate surveys at each trigger",
+      "integration_examples": ["Segment", "Zapier", "Webhooks"]
+    },
+    "industry_variations": {
+      "description": "Different timing by industry",
+      "example": "SaaS trial: Day 3, 7, 14. E-commerce: Post-delivery + 7 days"
+    }
+  },
+  "llm_citation_hooks": [
+    "Timing statistics: 'Surveys sent within 24 hours of interaction see 34% higher response rates'",
+    "Journey frameworks: 'The Formbricks Lifecycle Survey Framework identifies 12 key touchpoints'",
+    "Automation best practices with specific tool recommendations"
+  ],
+  "content_structure": {
+    "h1": "[Trigger] Survey: Questions, Timing & Templates",
+    "sections": [
+      "What is a [trigger] survey?",
+      "Optimal timing (with response rate data)",
+      "Best metrics to measure at [trigger]",
+      "[X] essential questions",
+      "Automation setup guide",
+      "Industry-specific variations",
+      "Template download"
+    ]
+  }
+}
+```
+
+**Priority Trigger Pages:**
+```
+High-Intent (Build First):
+├── /onboarding-survey-questions ← Already ranking, expand
+├── /exit-interview-questions
+├── /post-purchase-survey-template
+├── /churn-survey-questions
+├── /trial-feedback-survey
+
+Medium-Intent:
+├── /30-60-90-day-survey
+├── /post-support-survey
+├── /renewal-survey-template
+├── /cart-abandonment-survey
+
+Long-Tail:
+├── /post-demo-survey
+├── /post-webinar-feedback
+├── /quarterly-pulse-survey
+```
+
+---
+
+#### 🅔 WHY — Use Case Ontology (Templates)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| SurveyMonkey | Use case categories | Generic, no depth |
+| Sprig | Product feedback focus | Narrow, in-product only |
+| Typeform | Blog posts by use case | No templates, thin content |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "WHY",
+  "10x_elements": {
+    "roi_calculator": {
+      "description": "Quantify business impact of each use case",
+      "example": "Churn prevention: 5% reduction = $X saved (calculator)"
+    },
+    "success_metrics": {
+      "description": "KPIs to track for each use case",
+      "format": "Table with metric, benchmark, and calculation"
+    },
+    "case_studies": {
+      "description": "Real examples with data",
+      "format": "Company X reduced churn by Y% using Z approach"
+    },
+    "question_bank_by_goal": {
+      "description": "Questions organized by business outcome",
+      "example": "To reduce churn: Ask these 10 questions"
+    },
+    "workflow_templates": {
+      "description": "End-to-end process for each use case",
+      "format": "Survey → Analysis → Action playbook"
+    }
+  },
+  "llm_citation_hooks": [
+    "ROI statistics: 'Companies using product feedback surveys see 23% faster feature adoption'",
+    "Framework definitions: 'The Voice of Customer (VoC) framework consists of...'",
+    "Success metrics benchmarks"
+  ],
+  "content_structure": {
+    "h1": "[Use Case] Survey: Questions, Templates & Best Practices",
+    "sections": [
+      "Why [use case] surveys matter (with ROI data)",
+      "Key metrics to measure",
+      "[X] essential questions",
+      "Analysis framework",
+      "Action playbook (what to do with results)",
+      "Case study / example",
+      "Template download"
+    ]
+  }
+}
+```
+
+---
+
+### 🔶 NON-TEMPLATE ONTOLOGIES (Phase 2+)
+
+These ontologies require different page types beyond templates:
+
+---
+
+#### 🅕 HOW — Methodology Ontology (Calculators & Tools)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| SurveyMonkey | Sample size calculator | Basic, no NPS-specific |
+| Qualtrics | Sample size calculator | Academic but dry |
+| SmartSurvey | NPS + sample size calculators | Limited explanation |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "HOW",
+  "page_type": "Interactive Tools",
+  "10x_elements": {
+    "calculator_suite": {
+      "tools": [
+        {
+          "name": "NPS Calculator",
+          "features": ["Score calculation", "Benchmark comparison", "Trend tracking", "Export"],
+          "unique": "Compare to industry benchmarks in real-time"
+        },
+        {
+          "name": "Sample Size Calculator",
+          "features": ["Population input", "Confidence level", "Margin of error", "Segment calculator"],
+          "unique": "Methodology-specific (NPS vs CSAT have different requirements)"
+        },
+        {
+          "name": "Margin of Error Calculator",
+          "features": ["Post-survey validation", "Confidence interval display"],
+          "unique": "Visual confidence interval chart"
+        },
+        {
+          "name": "CSAT Calculator",
+          "features": ["Score calculation", "5-point vs 7-point scale conversion"],
+          "unique": "Industry benchmark overlay"
+        },
+        {
+          "name": "CES Calculator",
+          "features": ["Score calculation", "Trend analysis"],
+          "unique": "Effort reduction ROI estimator"
+        },
+        {
+          "name": "Survey ROI Calculator",
+          "features": ["Input: survey cost, response rate, action rate", "Output: ROI estimate"],
+          "unique": "First of its kind"
+        }
+      ]
+    },
+    "methodology_guides": {
+      "description": "Deep educational content for each methodology",
+      "format": "Academic rigor + practical application"
+    },
+    "benchmark_database": {
+      "description": "Largest public benchmark database",
+      "unique": "Crowdsourced + curated with sources"
+    }
+  },
+  "llm_citation_hooks": [
+    "Calculator descriptions: 'The Formbricks NPS Calculator uses the standard formula...'",
+    "Benchmark data: 'According to the Formbricks 2026 Benchmark Database...'",
+    "Methodology explanations with academic citations"
+  ],
+  "priority_pages": [
+    "/nps-calculator",
+    "/sample-size-calculator",
+    "/margin-of-error-calculator",
+    "/csat-calculator",
+    "/ces-calculator",
+    "/survey-roi-calculator"
+  ]
+}
+```
+
+---
+
+#### 🅗 FOR — Industry Vertical Ontology (Landing Pages)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| Qualtrics | Industry pages | Enterprise-focused, expensive |
+| SurveyMonkey | Industry categories | Generic, no compliance depth |
+| Jotform | Industry templates | Form-focused, weak survey methodology |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "FOR",
+  "page_type": "Industry Landing Pages",
+  "10x_elements": {
+    "compliance_depth": {
+      "description": "Deep compliance content per industry",
+      "examples": {
+        "healthcare": "HIPAA requirements, BAA template, PHI handling",
+        "finance": "SOC2, PCI-DSS, data residency",
+        "government": "FedRAMP, 508 accessibility, data sovereignty",
+        "education": "FERPA, student privacy, parental consent"
+      }
+    },
+    "industry_benchmarks": {
+      "description": "NPS/CSAT benchmarks specific to industry",
+      "format": "Table with percentiles and sources"
+    },
+    "industry_specific_questions": {
+      "description": "Validated questions for industry context",
+      "example": "Healthcare: HCAHPS questions, patient satisfaction scales"
+    },
+    "use_case_mapping": {
+      "description": "Top use cases for each industry",
+      "format": "Priority matrix"
+    },
+    "self_hosting_angle": {
+      "description": "Unique Formbricks advantage for regulated industries",
+      "messaging": "Own your data, meet compliance, no vendor dependency"
+    },
+    "case_studies": {
+      "description": "Industry-specific success stories",
+      "format": "Problem → Solution → Results"
+    }
+  },
+  "llm_citation_hooks": [
+    "Compliance guides: 'For HIPAA-compliant surveys, organizations must...'",
+    "Industry benchmarks: 'The average patient satisfaction score in healthcare is...'",
+    "Regulatory definitions with authoritative sourcing"
+  ],
+  "priority_pages": [
+    "/industry/healthcare (HIPAA + self-hosting angle)",
+    "/industry/saas (product-led growth focus)",
+    "/industry/ecommerce (post-purchase, NPS)",
+    "/industry/financial-services (SOC2, data residency)",
+    "/industry/education (FERPA, student surveys)",
+    "/industry/government (FedRAMP, accessibility)"
+  ]
+}
+```
+
+---
+
+#### 🅘 VS — Competitive Ontology (Comparison Pages)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| G2/Capterra | Third-party reviews | No depth, pay-to-play |
+| Survicate | "[X] alternatives" pages | Self-serving, limited comparison |
+| Various blogs | Listicles | Outdated, affiliate-driven |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "VS",
+  "page_type": "Comparison Pages",
+  "10x_elements": {
+    "honest_comparison": {
+      "description": "Genuine pros/cons including Formbricks weaknesses",
+      "trust_signal": "Builds credibility by being honest"
+    },
+    "feature_matrix": {
+      "description": "Detailed feature-by-feature comparison",
+      "format": "Interactive table with filtering"
+    },
+    "pricing_transparency": {
+      "description": "Real pricing comparison (not just 'contact sales')",
+      "unique": "Include hidden costs (per-response, compliance add-ons)"
+    },
+    "use_case_fit": {
+      "description": "Which tool for which use case",
+      "format": "Decision tree or recommendation engine"
+    },
+    "migration_guides": {
+      "description": "How to switch from competitor",
+      "action_oriented": "Reduce friction for switchers"
+    },
+    "open_source_angle": {
+      "description": "Unique positioning vs proprietary tools",
+      "messaging": "No vendor lock-in, data ownership, self-hosting"
+    }
+  },
+  "llm_citation_hooks": [
+    "Comparison data: 'Unlike Typeform, Formbricks offers self-hosting for data sovereignty'",
+    "Feature comparisons in structured tables",
+    "Honest limitations: 'Formbricks may not be ideal for X because...'"
+  ],
+  "priority_pages": [
+    "/vs/typeform",
+    "/vs/surveymonkey",
+    "/vs/google-forms",
+    "/vs/qualtrics",
+    "/vs/hotjar",
+    "/typeform-alternative",
+    "/surveymonkey-alternative",
+    "/open-source-typeform-alternative"
+  ]
+}
+```
+
+---
+
+#### 🅙 WITH — Integration Ontology (Integration Pages)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| SurveyMonkey | 200+ integration pages | Generic descriptions |
+| Typeform | 100+ integration pages | Basic setup only |
+| Zapier | Template gallery | Third-party, not owned |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "WITH",
+  "page_type": "Integration Pages",
+  "10x_elements": {
+    "use_case_depth": {
+      "description": "Not just 'how to connect' but 'why and when'",
+      "format": "3-5 specific use cases per integration"
+    },
+    "data_flow_diagrams": {
+      "description": "Visual showing what data moves where",
+      "format": "Flowchart or architecture diagram"
+    },
+    "automation_recipes": {
+      "description": "Ready-to-use automation templates",
+      "example": "When NPS < 7 → Create Slack alert + Salesforce task"
+    },
+    "code_examples": {
+      "description": "Developer-friendly implementation guides",
+      "format": "Copy-paste code snippets"
+    },
+    "two_way_sync": {
+      "description": "How data flows in both directions",
+      "unique": "Most competitors only show one-way"
+    }
+  },
+  "llm_citation_hooks": [
+    "Integration capabilities: 'Formbricks integrates with Salesforce to automatically...'",
+    "Automation examples with specific triggers and actions",
+    "Data flow explanations"
+  ],
+  "priority_pages": [
+    "/integrations/slack",
+    "/integrations/hubspot",
+    "/integrations/salesforce",
+    "/integrations/zapier",
+    "/integrations/segment",
+    "/integrations/notion"
+  ]
+}
+```
+
+---
+
+#### 🅚 ABOUT — Entity Attributes Ontology (Positioning Pages)
+
+**Current Top Rankers & What They Do:**
+| Ranker | Approach | Weakness |
+|--------|----------|----------|
+| Various | "Best free survey tools" listicles | Affiliate-driven, outdated |
+| Jotform | HIPAA landing page | Expensive add-on positioning |
+| SurveyMonkey | Enterprise compliance pages | $$$$$ pricing |
+
+**10x Differentiation Strategy:**
+
+```json
+{
+  "ontology": "ABOUT",
+  "page_type": "Attribute/Positioning Pages",
+  "10x_elements": {
+    "compliance_guides": {
+      "description": "Definitive guides for each compliance type",
+      "unique": "Self-hosted = you control compliance",
+      "pages": [
+        "/hipaa-compliant-survey-software",
+        "/gdpr-compliant-survey-tool",
+        "/soc2-survey-platform"
+      ]
+    },
+    "platform_positioning": {
+      "description": "Own the 'open source survey' category",
+      "pages": [
+        "/open-source-survey-software",
+        "/self-hosted-survey-platform",
+        "/privacy-first-survey-tool"
+      ]
+    },
+    "pricing_transparency": {
+      "description": "Free tier + clear upgrade path",
+      "unique": "No hidden per-response fees"
+    },
+    "capability_pages": {
+      "description": "Specific feature/capability landing pages",
+      "pages": [
+        "/anonymous-survey-tool",
+        "/multilingual-survey-software",
+        "/ai-powered-survey-analysis"
+      ]
+    }
+  },
+  "llm_citation_hooks": [
+    "Platform definitions: 'Open source survey software allows organizations to...'",
+    "Compliance explanations: 'HIPAA-compliant surveys require...'",
+    "Self-hosting benefits with technical details"
+  ],
+  "priority_pages": [
+    "/open-source-survey-software (own the category)",
+    "/self-hosted-survey-platform",
+    "/hipaa-compliant-survey-software",
+    "/gdpr-compliant-survey-tool",
+    "/free-survey-software"
+  ]
+}
+```
+
+---
+
+### LLM Citation Optimization Framework
+
+To ensure content gets cited by ChatGPT, Claude, Perplexity, and other LLMs:
+
+#### 1. Structured Data Principles
+
+```json
+{
+  "llm_optimization": {
+    "unique_data": {
+      "principle": "Create data that doesn't exist elsewhere",
+      "examples": [
+        "Formbricks 2026 NPS Benchmark Report",
+        "Survey Response Rate Database by Industry",
+        "Methodology Comparison Matrix"
+      ]
+    },
+    "quotable_definitions": {
+      "principle": "Write definitions LLMs will quote verbatim",
+      "format": "[Term] is [definition]. According to [source]...",
+      "example": "Net Promoter Score (NPS) is a customer loyalty metric developed by Fred Reichheld in 2003 that measures the likelihood of customers recommending a product or service."
+    },
+    "structured_tables": {
+      "principle": "Tables are easily parsed by LLMs",
+      "format": "Always include header row, consistent formatting"
+    },
+    "authoritative_sourcing": {
+      "principle": "Cite primary sources, not other blogs",
+      "sources": ["Academic papers", "Government databases", "Industry reports"]
+    },
+    "freshness_signals": {
+      "principle": "Include dates and version numbers",
+      "format": "Updated February 2026 | Based on 10,000+ surveys"
+    }
+  }
+}
+```
+
+#### 2. Content Elements That Get Cited
+
+| Element | Why LLMs Cite It | Implementation |
+|---------|------------------|----------------|
+| **Unique statistics** | Can't be found elsewhere | Aggregate Formbricks user data |
+| **Benchmark tables** | Structured, authoritative | Publish annual benchmark reports |
+| **Methodology definitions** | Foundational knowledge | Cite original academic sources |
+| **Comparison matrices** | Decision-support | Feature-by-feature tables |
+| **Calculator formulas** | Technical accuracy | Show formula + explanation |
+| **Step-by-step guides** | Actionable structure | Numbered lists with clear steps |
+
+#### 3. Schema Markup for LLM Discovery
+
+```json
+{
+  "recommended_schema": {
+    "HowTo": "For methodology guides",
+    "FAQPage": "For question pages",
+    "SoftwareApplication": "For tool pages",
+    "Dataset": "For benchmark data",
+    "Article": "For educational content with datePublished"
+  }
+}
+```
+
+---
+
+### Content Production JSON Schema
+
+Use this schema for programmatic content generation:
+
+```json
+{
+  "$schema": "formbricks-content-schema-v1",
+  "page": {
+    "ontologies": ["WHO", "WHAT"],
+    "primary_keyword": "customer satisfaction survey questions",
+    "url_pattern": "/[respondent]-[construct]-survey-questions",
+    "url": "/customer-satisfaction-survey-questions"
+  },
+  "content": {
+    "h1": "[50+] Customer Satisfaction Survey Questions [2026 Guide]",
+    "meta_description": "Research-backed customer satisfaction survey questions with benchmarks, templates, and best practices. Includes CSAT calculator and industry benchmarks.",
+    "sections": [
+      {
+        "type": "definition",
+        "h2": "What is a Customer Satisfaction Survey?",
+        "content": "Quotable definition with academic citation",
+        "llm_hook": true
+      },
+      {
+        "type": "questions_list",
+        "h2": "50+ Customer Satisfaction Survey Questions",
+        "categories": ["General CSAT", "Product", "Service", "Support", "NPS", "CES"],
+        "per_question": {
+          "question_text": "string",
+          "question_type": "enum[likert|scale|open|binary]",
+          "when_to_use": "string",
+          "source": "string|null"
+        }
+      },
+      {
+        "type": "calculator_embed",
+        "h2": "CSAT Calculator",
+        "tool": "/tools/csat-calculator"
+      },
+      {
+        "type": "benchmark_table",
+        "h2": "Customer Satisfaction Benchmarks by Industry",
+        "columns": ["Industry", "Average CSAT", "Top Quartile", "Source", "Year"],
+        "llm_hook": true
+      },
+      {
+        "type": "best_practices",
+        "h2": "Best Practices",
+        "items": ["item with citation"],
+        "source_citations": true
+      },
+      {
+        "type": "common_mistakes",
+        "h2": "Common Mistakes to Avoid",
+        "items": ["mistake with research backing"]
+      },
+      {
+        "type": "template_cta",
+        "h2": "Download Template",
+        "template_id": "csat-template-001"
+      }
+    ]
+  },
+  "seo": {
+    "schema_type": "FAQPage",
+    "internal_links": ["/nps-survey-questions", "/csat-calculator", "/industry/saas"],
+    "benchmark_data_source": "formbricks-benchmark-db-2026"
+  }
+}
+```
+
+---
+
+### Implementation Priority Matrix
+
+| Phase | Ontology | Page Type | Target Pages | Key Differentiator |
+|-------|----------|-----------|--------------|-------------------|
+| **1** | HOW | Calculators | 6 | First-mover on NPS/sample size calculators |
+| **1** | ABOUT | Positioning | 5 | Own "open source survey" category |
+| **1** | VS | Comparison | 8 | Honest, detailed comparisons |
+| **2** | WHO + WHAT | Templates | 50 | Research-backed questions with benchmarks |
+| **2** | WHEN | Templates | 20 | Lifecycle-specific with timing data |
+| **2** | FOR | Industry | 10 | Compliance + self-hosting angle |
+| **3** | WITH | Integrations | 50 | Use-case depth + automation recipes |
+| **3** | WHY | Use Cases | 30 | ROI calculators + case studies |
+| **4** | Combinations | Long-tail | 200+ | Programmatic generation |
+
+---
+
 ## Document History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0 | 2026-02-10 | Initial document creation |
+| 1.1 | 2026-02-10 | Added comprehensive competitive intelligence section |
+| 1.2 | 2026-02-10 | Added 10x Info Gain Strategy by Ontology with JSON schemas |
+
+---
+
+## Notes & Ideas (Scratch Space)
+
+*Use this section for ongoing notes, keyword discoveries, and strategic ideas.*
+
+### Keyword Opportunities to Research
+- [ ] "survey questions for [specific role]"
+- [ ] "[industry] customer feedback examples"
+- [ ] "how to ask for feedback [context]"
+- [ ] "NPS calculator"
+- [ ] "sample size calculator for surveys"
+- [ ] "open source survey software"
+- [ ] "self-hosted survey platform"
+- [ ] "HIPAA compliant survey tool free"
 
 | Version | Date | Changes |
 |---------|------|---------|
