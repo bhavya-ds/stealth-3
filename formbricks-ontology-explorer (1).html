@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formbricks pSEO Ontology Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-hover: #1a1a25;
+            --text-primary: #e8e8ed;
+            --text-muted: #7a7a8c;
+            --accent-who: #ff6b6b;
+            --accent-what: #feca57;
+            --accent-when: #48dbfb;
+            --accent-where: #1dd1a1;
+            --accent-why: #ff9ff3;
+            --accent-how: #54a0ff;
+            --accent-which: #5f27cd;
+            --accent-for: #00d2d3;
+            --accent-vs: #ff9f43;
+            --accent-with: #10ac84;
+            --accent-about: #ee5a24;
+            --border: rgba(255,255,255,0.06);
+            --header-height: 220px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+        
+        .header { 
+            padding: 40px 40px 30px; 
+            text-align: center; 
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--border); 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            right: 0;
+            z-index: 100; 
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.95);
+        }
+        .header h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; background: linear-gradient(135deg, #fff 0%, #aaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header p { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; }
+        .nav-strip { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+        .nav-pill { padding: 8px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; border: 1px solid transparent; text-decoration: none; font-family: 'Space Mono', monospace; }
+        .nav-pill:hover { transform: translateY(-2px); }
+        .nav-pill[data-target="who"] { background: rgba(255, 107, 107, 0.15); color: var(--accent-who); border-color: rgba(255, 107, 107, 0.3); }
+        .nav-pill[data-target="what"] { background: rgba(254, 202, 87, 0.15); color: var(--accent-what); border-color: rgba(254, 202, 87, 0.3); }
+        .nav-pill[data-target="when"] { background: rgba(72, 219, 251, 0.15); color: var(--accent-when); border-color: rgba(72, 219, 251, 0.3); }
+        .nav-pill[data-target="where"] { background: rgba(29, 209, 161, 0.15); color: var(--accent-where); border-color: rgba(29, 209, 161, 0.3); }
+        .nav-pill[data-target="why"] { background: rgba(255, 159, 243, 0.15); color: var(--accent-why); border-color: rgba(255, 159, 243, 0.3); }
+        .nav-pill[data-target="how"] { background: rgba(84, 160, 255, 0.15); color: var(--accent-how); border-color: rgba(84, 160, 255, 0.3); }
+        .nav-pill[data-target="which"] { background: rgba(95, 39, 205, 0.15); color: var(--accent-which); border-color: rgba(95, 39, 205, 0.3); }
+        .nav-pill[data-target="for"] { background: rgba(0, 210, 211, 0.15); color: var(--accent-for); border-color: rgba(0, 210, 211, 0.3); }
+        .nav-pill[data-target="vs"] { background: rgba(255, 159, 67, 0.15); color: var(--accent-vs); border-color: rgba(255, 159, 67, 0.3); }
+        .nav-pill[data-target="with"] { background: rgba(16, 172, 132, 0.15); color: var(--accent-with); border-color: rgba(16, 172, 132, 0.3); }
+        .nav-pill[data-target="about"] { background: rgba(238, 90, 36, 0.15); color: var(--accent-about); border-color: rgba(238, 90, 36, 0.3); }
+        .controls { display: flex; justify-content: center; gap: 12px; }
+        .control-btn { padding: 8px 18px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-muted); font-family: 'Outfit', sans-serif; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease; }
+        .control-btn:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+        
+        .container { 
+            max-width: 1600px; 
+            margin: 0 auto; 
+            padding: 40px; 
+            padding-top: calc(var(--header-height) + 40px);
+        }
+        .ontology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 24px; }
+        .ontology-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; transition: all 0.3s ease; scroll-margin-top: calc(var(--header-height) + 20px); }
+        .ontology-card:hover { border-color: rgba(255,255,255,0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+        .card-header { padding: 24px; display: flex; align-items: center; gap: 16px; cursor: pointer; transition: background 0.2s ease; }
+        .card-header:hover { background: var(--bg-hover); }
+        .ontology-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.4rem; flex-shrink: 0; }
+        .card-header-text h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
+        .card-header-text p { color: var(--text-muted); font-size: 0.9rem; font-style: italic; }
+        .expand-icon { margin-left: auto; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: rgba(255,255,255,0.05); transition: transform 0.3s ease; }
+        .expand-icon svg { width: 16px; height: 16px; stroke: var(--text-muted); }
+        .ontology-card.expanded .expand-icon { transform: rotate(180deg); }
+        .card-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .ontology-card.expanded .card-content { max-height: 2000px; }
+        .branches-container { padding: 0 24px 24px; }
+        .branch { margin-bottom: 16px; }
+        .branch-header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: rgba(255,255,255,0.03); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; border: 1px solid transparent; }
+        .branch-header:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.08); }
+        .branch-toggle { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; }
+        .branch-toggle svg { width: 12px; height: 12px; stroke: var(--text-muted); }
+        .branch.open .branch-toggle { transform: rotate(90deg); }
+        .branch-name { font-weight: 500; font-size: 0.95rem; letter-spacing: 0.02em; }
+        .branch-count { margin-left: auto; padding: 4px 10px; border-radius: 100px; font-size: 0.75rem; font-family: 'Space Mono', monospace; background: rgba(255,255,255,0.05); color: var(--text-muted); }
+        .leaves { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .branch.open .leaves { max-height: 1000px; }
+        .leaves-inner { padding: 12px 0 0 36px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .leaf { padding: 6px 14px; background: rgba(255,255,255,0.04); border-radius: 6px; font-size: 0.85rem; color: var(--text-muted); transition: all 0.2s ease; border: 1px solid transparent; }
+        .leaf:hover { background: rgba(255,255,255,0.08); color: var(--text-primary); border-color: rgba(255,255,255,0.1); }
+        #who .ontology-icon { background: linear-gradient(135deg, var(--accent-who), #cc5555); color: white; }
+        #what .ontology-icon { background: linear-gradient(135deg, var(--accent-what), #d4a94a); color: #1a1a25; }
+        #when .ontology-icon { background: linear-gradient(135deg, var(--accent-when), #3ab0c9); color: #1a1a25; }
+        #where .ontology-icon { background: linear-gradient(135deg, var(--accent-where), #18a882); color: #1a1a25; }
+        #why .ontology-icon { background: linear-gradient(135deg, var(--accent-why), #d980cc); color: #1a1a25; }
+        #how .ontology-icon { background: linear-gradient(135deg, var(--accent-how), #4580d4); color: white; }
+        #which .ontology-icon { background: linear-gradient(135deg, var(--accent-which), #4a1fa3); color: white; }
+        #for .ontology-icon { background: linear-gradient(135deg, var(--accent-for), #00a8a9); color: #1a1a25; }
+        #vs .ontology-icon { background: linear-gradient(135deg, var(--accent-vs), #d98038); color: #1a1a25; }
+        #with .ontology-icon { background: linear-gradient(135deg, var(--accent-with), #0d8a6a); color: white; }
+        #about .ontology-icon { background: linear-gradient(135deg, var(--accent-about), #c04a1e); color: white; }
+        #who .branch-name { color: var(--accent-who); }
+        #what .branch-name { color: var(--accent-what); }
+        #when .branch-name { color: var(--accent-when); }
+        #where .branch-name { color: var(--accent-where); }
+        #why .branch-name { color: var(--accent-why); }
+        #how .branch-name { color: var(--accent-how); }
+        #which .branch-name { color: var(--accent-which); }
+        #for .branch-name { color: var(--accent-for); }
+        #vs .branch-name { color: var(--accent-vs); }
+        #with .branch-name { color: var(--accent-with); }
+        #about .branch-name { color: var(--accent-about); }
+        .stats-bar { display: flex; justify-content: center; gap: 40px; padding: 30px; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); margin-top: 40px; border-radius: 12px; flex-wrap: wrap; }
+        .stat { text-align: center; }
+        .stat-value { font-family: 'Space Mono', monospace; font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #fff, #888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+        @media (max-width: 768px) { 
+            :root { --header-height: 280px; }
+            .header { padding: 20px; } 
+            .header h1 { font-size: 1.6rem; } 
+            .container { padding: 20px; padding-top: calc(var(--header-height) + 20px); } 
+            .ontology-grid { grid-template-columns: 1fr; } 
+            .nav-pill { padding: 6px 12px; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Formbricks pSEO Ontology</h1>
+        <p>11 interconnected taxonomies powering thousands of high-intent landing pages</p>
+        <nav class="nav-strip">
+            <a href="#who" class="nav-pill" data-target="who">WHO</a>
+            <a href="#what" class="nav-pill" data-target="what">WHAT</a>
+            <a href="#when" class="nav-pill" data-target="when">WHEN</a>
+            <a href="#where" class="nav-pill" data-target="where">WHERE</a>
+            <a href="#why" class="nav-pill" data-target="why">WHY</a>
+            <a href="#how" class="nav-pill" data-target="how">HOW</a>
+            <a href="#which" class="nav-pill" data-target="which">WHICH</a>
+            <a href="#for" class="nav-pill" data-target="for">FOR</a>
+            <a href="#vs" class="nav-pill" data-target="vs">VS</a>
+            <a href="#with" class="nav-pill" data-target="with">WITH</a>
+            <a href="#about" class="nav-pill" data-target="about">ABOUT</a>
+        </nav>
+        <div class="controls">
+            <button class="control-btn" id="expandBtn">Expand All</button>
+            <button class="control-btn" id="collapseBtn">Collapse All</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="ontology-grid" id="grid"></div>
+        <div class="stats-bar">
+            <div class="stat"><div class="stat-value">11</div><div class="stat-label">Ontologies</div></div>
+            <div class="stat"><div class="stat-value">~510</div><div class="stat-label">Single Pages</div></div>
+            <div class="stat"><div class="stat-value">5,000+</div><div class="stat-label">2-Way Combos</div></div>
+            <div class="stat"><div class="stat-value">50,000+</div><div class="stat-label">3-Way Combos</div></div>
+        </div>
+    </div>
+    <script>
+const data = {
+    who: { icon: "A", title: "WHO — Respondent Ontology", desc: "Who is being surveyed?", branches: {
+        "EXTERNAL RESPONDENTS": ["B2B customers","B2C customers","Enterprise customers","SMB customers","Free users","Trial users","Power users","Churned users","Beta users","Leads","MQLs","SQLs","Demo attendees"],
+        "INDUSTRY-SPECIFIC": ["Patients","Students","Members","Donors","Citizens","Guests","Attendees","Subscribers","Readers","Passengers"],
+        "ECOSYSTEM": ["Partners","Vendors","Resellers","Affiliates","Investors"],
+        "INTERNAL RESPONDENTS": ["Full-time","Part-time","Contract","Remote","Hybrid","Deskless","New hires","Tenured","Veterans","Exiting","ICs","Managers","Directors","VPs","C-suite","Applicants","Interviewees","Alumni"]
+    }},
+    what: { icon: "B", title: "WHAT — Construct Ontology", desc: "What is being measured?", branches: {
+        "SATISFACTION": ["Overall satisfaction","CSAT","Employee satisfaction","Product satisfaction","Service satisfaction","Support satisfaction"],
+        "LOYALTY": ["NPS","eNPS","Customer loyalty","Brand loyalty","Advocacy","Referral likelihood"],
+        "EFFORT": ["CES","Ease of use","Friction points","Task completion"],
+        "EXPERIENCE": ["UX","CX","EX","Patient experience","Candidate experience","Partner experience"],
+        "WELLBEING": ["Wellbeing","Burnout","Stress","Work-life balance","Mental health","Psychological safety"],
+        "PERCEPTION": ["Brand awareness","Brand perception","Trust","Credibility","Reputation","Value perception"],
+        "CULTURE": ["Company culture","Team culture","Belonging","Inclusion","Diversity","Values alignment"],
+        "PERFORMANCE": ["Usability (SUS)","Product-market fit","Feature adoption","Quality perception","Reliability"],
+        "INTENT": ["Purchase intent","Renewal intent","Churn intent","Upgrade intent","Recommendation intent"]
+    }},
+    when: { icon: "C", title: "WHEN — Trigger Ontology", desc: "When is the survey triggered?", branches: {
+        "ACQUISITION": ["First visit","Landing page","Lead capture","Demo request","Post-demo","Trial start","Trial mid-point","Trial end"],
+        "ACTIVATION": ["Signup","Onboarding start","Onboarding complete","First value moment","Account setup","First purchase","Welcome sequence"],
+        "ENGAGEMENT": ["Feature usage","Feature discovery","Milestone reached","Upgrade moment","Power user threshold","Return visit","Session end"],
+        "TRANSACTION": ["Pre-purchase","Checkout","Post-purchase","Order confirmation","Delivery complete","Cart abandonment","Payment failure"],
+        "SUPPORT": ["Pre-support","Ticket created","Ticket resolved","Post-support","KB exit","Chat end","Call end"],
+        "CHURN": ["Cancellation intent","Cancellation complete","Downgrade","Pause subscription","Account deletion","Exit interview"],
+        "EMPLOYEE LIFECYCLE": ["Application","Interview","Offer","Day 1","Week 1","30-60-90 days","Probation end","Quarterly check-in","Annual review","Promotion","Team change","Resignation","Exit"],
+        "PERIODIC": ["Daily pulse","Weekly check-in","Monthly survey","Quarterly survey","Annual survey","Post-event","Post-release","Post-campaign"]
+    }},
+    where: { icon: "D", title: "WHERE — Channel Ontology", desc: "Where is the survey delivered?", branches: {
+        "IN-PRODUCT": ["Modal/popup","Slide-out","Inline embed","Bottom bar","Floating button","Page-specific","Feature-specific","Event-triggered","Time-on-page","Scroll-depth","iOS","Android","React Native"],
+        "WEBSITE": ["Website survey","Exit-intent popup","Feedback widget","Embedded form","Landing page","Thank you page"],
+        "EMAIL": ["Email survey","Email embed","Transactional email","Newsletter survey","Signature survey"],
+        "LINK-BASED": ["Link survey","QR code","SMS survey","Social media","Shareable"],
+        "MESSAGING": ["Slack","Teams","WhatsApp","Intercom","Chatbot"],
+        "OFFLINE": ["Kiosk","Tablet","Paper (digitized)","Phone (IVR)"]
+    }},
+    why: { icon: "E", title: "WHY — Use Case Ontology", desc: "What business goal does this serve?", branches: {
+        "PRODUCT": ["Product feedback","Feature requests","Feature prioritization","Roadmap validation","Beta testing","Bug reporting","Usability testing","PMF","Competitive research"],
+        "CUSTOMER": ["Customer satisfaction","NPS","CES","Churn prevention","Churn analysis","Win-back","Health scoring","VoC","Advisory board"],
+        "GROWTH": ["Lead qualification","Lead scoring","Demo feedback","Trial feedback","Conversion optimization","Onboarding optimization","Activation","Referral program"],
+        "MARKETING": ["Market research","Audience research","Persona development","Brand research","Content feedback","Campaign feedback","Event feedback","Webinar feedback"],
+        "SALES": ["Sales feedback","Lost deal analysis","Win analysis","Competitor analysis","Pricing research","Proposal feedback"],
+        "SUPPORT": ["Support satisfaction","Ticket feedback","KB feedback","Documentation feedback","Chatbot feedback","Self-service feedback"],
+        "HR": ["Employee engagement","Employee satisfaction","Pulse surveys","Onboarding feedback","Exit interviews","360 feedback","Manager feedback","Training evaluation","Culture assessment","DEI surveys","Benefits feedback","Remote work"],
+        "UX RESEARCH": ["User research","Usability studies","Concept testing","Prototype feedback","A/B test research","Card sorting","Tree testing","First-click testing"]
+    }},
+    how: { icon: "F", title: "HOW — Methodology Ontology", desc: "What measurement framework?", branches: {
+        "STANDARDIZED METRICS": ["NPS","CSAT","CES","eNPS","PMF Score","SUS","Customer Health Score","SERVQUAL","CLV proxy"],
+        "SCALE TYPES": ["Likert (1-5, 1-7)","Semantic differential","Rating (1-10)","Star rating","Emoji scale","Slider","Binary","Thumbs"],
+        "QUESTION FORMATS": ["Single select","Multi select","Dropdown","Matrix/grid","Ranking","Short text","Long text","File upload","Image selection","Video response","Date/time"],
+        "SURVEY STRUCTURES": ["Micro-survey","Multi-page","Branching/logic","Conversational","Quiz format","Assessment","Interview format"],
+        "RESEARCH METHODS": ["Quantitative","Qualitative","Mixed methods","Longitudinal","Cross-sectional","A/B testing","Conjoint","MaxDiff","Segmentation"]
+    }},
+    which: { icon: "G", title: "WHICH — Subject Ontology", desc: "What entity is being evaluated?", branches: {
+        "PRODUCT/SERVICE": ["Product","Feature","New feature","Service","Pricing","Packaging","Quality","Value"],
+        "DIGITAL PROPERTIES": ["Website","Mobile app","Web app","Landing page","Checkout flow","Onboarding flow","Search","Navigation","Documentation"],
+        "CONTENT": ["Blog post","Video","Podcast","Newsletter","Course","Webinar","Ebook","Help article"],
+        "INTERACTIONS": ["Support interaction","Sales interaction","Onboarding call","Demo","Meeting","Workshop","Consultation"],
+        "PEOPLE": ["Manager","Team","Peer","Direct report","Instructor","Support agent","Sales rep","Account manager"],
+        "ORGANIZATIONAL": ["Company","Department","Team","Process","Policy","Culture","Leadership","Communication"],
+        "EVENTS": ["Event","Conference","Workshop","Training","Webinar","Meetup","Virtual event"],
+        "PHYSICAL": ["Location/facility","Office","Store","Branch","Equipment"]
+    }},
+    "for": { icon: "H", title: "FOR — Industry Ontology", desc: "What industry is this for?", branches: {
+        "TECHNOLOGY": ["SaaS","B2B software","B2C apps","Developer tools","Fintech","Healthtech","Edtech","Martech","AI/ML","Cybersecurity","Infrastructure"],
+        "FINANCIAL SERVICES": ["Banking","Insurance","Wealth management","Payments","Lending","Cryptocurrency"],
+        "HEALTHCARE": ["Hospitals","Clinics","Telehealth","Pharma","Medical devices","Mental health","Dental","Senior care"],
+        "RETAIL & ECOMMERCE": ["E-commerce","D2C brands","Retail stores","Marketplace","Grocery","Fashion","Luxury"],
+        "EDUCATION": ["K-12","Higher education","Online learning","Corporate training","Bootcamps","Tutoring"],
+        "PROFESSIONAL SERVICES": ["Consulting","Legal","Accounting","Agencies","Recruiting","Real estate"],
+        "MEDIA & ENTERTAINMENT": ["Streaming","Gaming","Publishing","News","Social media","Sports"],
+        "HOSPITALITY & TRAVEL": ["Hotels","Restaurants","Airlines","Travel agencies","Tourism","Events/venues"],
+        "MANUFACTURING & LOGISTICS": ["Manufacturing","Supply chain","Logistics","Automotive","Construction"],
+        "NONPROFIT & GOVERNMENT": ["Nonprofits","Government","NGOs","Foundations","Associations"],
+        "BY COMPANY STAGE": ["Startups (seed)","Series A-B","Scale-ups","SMB","Mid-market","Enterprise"]
+    }},
+    vs: { icon: "I", title: "VS — Competitive Ontology", desc: "How does Formbricks compare?", branches: {
+        "DIRECT COMPETITORS": ["Typeform","SurveyMonkey","Google Forms","Microsoft Forms","Jotform","Tally","Paperform","SurveySparrow","Survicate","Fillout"],
+        "ENTERPRISE PLATFORMS": ["Qualtrics","Medallia","Alchemer","Confirmit","GetFeedback"],
+        "IN-APP FEEDBACK TOOLS": ["Sprig","Hotjar","Pendo","Usersnap","Refiner","Userpilot","Canny"],
+        "OPEN SOURCE ALTERNATIVES": ["LimeSurvey","Typebot","Heyform","Super Easy Forms"],
+        "CATEGORY PAGES": ["Open source survey tools","Self-hosted platforms","Free survey tools","GDPR-compliant tools","HIPAA-compliant tools","Privacy-first tools"],
+        "ALTERNATIVE APPROACHES": ["vs building in-house","vs using spreadsheets","vs email feedback","vs manual interviews"]
+    }},
+    "with": { icon: "J", title: "WITH — Integration Ontology", desc: "What tools does Formbricks connect with?", branches: {
+        "CRM": ["Salesforce","HubSpot","Pipedrive","Zoho CRM","Close","Attio"],
+        "MARKETING AUTOMATION": ["Mailchimp","Klaviyo","ActiveCampaign","Customer.io","Braze","Iterable","ConvertKit"],
+        "PRODUCT ANALYTICS": ["Segment","Amplitude","Mixpanel","PostHog","Heap","FullStory","LogRocket"],
+        "CUSTOMER SUCCESS": ["Intercom","Zendesk","Freshdesk","Help Scout","Front","Gainsight","Vitally"],
+        "COLLABORATION": ["Slack","Microsoft Teams","Notion","Airtable","Coda","Linear","Jira","Asana"],
+        "DATA/BI": ["Google Sheets","Excel","BigQuery","Snowflake","Tableau","Looker","Metabase"],
+        "AUTOMATION": ["Zapier","Make (Integromat)","n8n","Tray.io","Workato"],
+        "WEBSITE/CMS": ["WordPress","Webflow","Shopify","Squarespace","Wix","Framer","Ghost"],
+        "DEVELOPER": ["JavaScript SDK","React","Next.js","Vue.js","Svelte","REST API","GraphQL","Webhooks"],
+        "IDENTITY/AUTH": ["Auth0","Clerk","Firebase Auth","Okta"]
+    }},
+    about: { icon: "K", title: "ABOUT — Attributes Ontology", desc: "What compliance, pricing, or platform attributes?", branches: {
+        "COMPLIANCE & SECURITY": ["GDPR compliant","HIPAA compliant","SOC 2 compliant","CCPA compliant","ISO 27001","FERPA compliant","WCAG accessible","Data residency (EU)","Data residency (US)","Self-hosted"],
+        "PRICING MODEL": ["Free survey tool","Freemium","Per-response pricing","Per-seat pricing","Unlimited responses","Enterprise pricing","Open source (free)"],
+        "PLATFORM TYPE": ["Open source","Self-hosted","Cloud-hosted","White-label","API-first","No-code","Headless"],
+        "CAPABILITY": ["AI-powered survey","Multilingual survey","Anonymous survey","Offline survey","Mobile-first survey","Conversational survey","Conditional logic","Branching survey"]
+    }}
+};
+
+function renderGrid() {
+    var grid = document.getElementById('grid');
+    var html = '';
+    for (var id in data) {
+        var ont = data[id];
+        html += '<div class="ontology-card" id="' + id + '">';
+        html += '<div class="card-header">';
+        html += '<div class="ontology-icon">' + ont.icon + '</div>';
+        html += '<div class="card-header-text"><h2>' + ont.title + '</h2><p>"' + ont.desc + '"</p></div>';
+        html += '<div class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>';
+        html += '</div>';
+        html += '<div class="card-content"><div class="branches-container">';
+        for (var branch in ont.branches) {
+            var leaves = ont.branches[branch];
+            html += '<div class="branch">';
+            html += '<div class="branch-header">';
+            html += '<div class="branch-toggle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 6 15 12 9 18"></polyline></svg></div>';
+            html += '<span class="branch-name">' + branch + '</span>';
+            html += '<span class="branch-count">' + leaves.length + '</span>';
+            html += '</div>';
+            html += '<div class="leaves"><div class="leaves-inner">';
+            for (var i = 0; i < leaves.length; i++) {
+                html += '<span class="leaf">' + leaves[i] + '</span>';
+            }
+            html += '</div></div></div>';
+        }
+        html += '</div></div></div>';
+    }
+    grid.innerHTML = html;
+    attachEventListeners();
+}
+
+function attachEventListeners() {
+    var cardHeaders = document.querySelectorAll('.card-header');
+    for (var i = 0; i < cardHeaders.length; i++) {
+        cardHeaders[i].addEventListener('click', function(e) {
+            this.parentElement.classList.toggle('expanded');
+        });
+    }
+    
+    var branchHeaders = document.querySelectorAll('.branch-header');
+    for (var j = 0; j < branchHeaders.length; j++) {
+        branchHeaders[j].addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.parentElement.classList.toggle('open');
+        });
+    }
+    
+    var navPills = document.querySelectorAll('.nav-pill');
+    for (var k = 0; k < navPills.length; k++) {
+        navPills[k].addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('data-target');
+            var target = document.getElementById(targetId);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setTimeout(function() { target.classList.add('expanded'); }, 300);
+            }
+        });
+    }
+}
+
+function expandAll() {
+    var cards = document.querySelectorAll('.ontology-card');
+    var branches = document.querySelectorAll('.branch');
+    for (var i = 0; i < cards.length; i++) { cards[i].classList.add('expanded'); }
+    for (var j = 0; j < branches.length; j++) { branches[j].classList.add('open'); }
+}
+
+function collapseAll() {
+    var cards = document.querySelectorAll('.ontology-card');
+    var branches = document.querySelectorAll('.branch');
+    for (var i = 0; i < cards.length; i++) { cards[i].classList.remove('expanded'); }
+    for (var j = 0; j < branches.length; j++) { branches[j].classList.remove('open'); }
+}
+
+document.getElementById('expandBtn').addEventListener('click', expandAll);
+document.getElementById('collapseBtn').addEventListener('click', collapseAll);
+
+renderGrid();
+document.querySelector('.ontology-card').classList.add('expanded');
+    </script>
+</body>
+</html>
