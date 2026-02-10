@@ -1615,11 +1615,375 @@ ABOUT (Entity Attributes)
 
 ---
 
+## Competitive Intelligence Deep Dive
+
+### Competitor Ontology Coverage Matrix
+
+This section maps each major competitor's content coverage across the 10 ontologies, identifying strategic gaps Formbricks can exploit.
+
+#### Coverage Legend
+- ✅ **Strong** = 50+ pages/extensive coverage
+- 🟡 **Moderate** = 10-50 pages/decent coverage
+- 🔴 **Weak** = <10 pages/minimal coverage
+- ❌ **None** = No meaningful coverage
+
+---
+
+### Typeform
+
+**Overview:** Premium form builder known for conversational UI. Strong brand, large template library (3,000+).
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | 🟡 | Customer, employee categories but not deep respondent-specific pages |
+| WHAT (Construct) | 🟡 | NPS, CSAT mentioned in blog but few dedicated measurement pages |
+| WHEN (Trigger) | 🔴 | Limited lifecycle/trigger-specific content |
+| WHERE (Channel) | ✅ | Strong on website, email, link surveys |
+| WHY (Use Case) | ✅ | Good use-case categorization (product, marketing, HR) |
+| HOW (Methodology) | 🔴 | **NO CALCULATORS** - major gap |
+| WHICH (Subject) | 🟡 | Product feedback, event feedback coverage |
+| FOR (Industry) | 🟡 | Generic categories, not deep verticals |
+| VS (Competitive) | 🔴 | Minimal comparison content |
+| WITH (Integration) | ✅ | 100+ integration pages (Slack, Salesforce, HubSpot) |
+| ABOUT (Attributes) | 🔴 | No self-hosted, limited compliance content |
+
+**Key Gaps to Exploit:**
+1. **Zero calculators** (NPS, sample size, margin of error)
+2. **No self-hosting/open-source angle** - can't serve regulated industries
+3. **Weak methodology/research content** - no academic citations
+4. **Limited HIPAA/healthcare focus**
+
+---
+
+### SurveyMonkey
+
+**Overview:** Market leader with enterprise focus. 500+ templates, strong research heritage.
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | ✅ | Extensive customer, employee, student segments |
+| WHAT (Construct) | ✅ | Deep NPS, CSAT, engagement content |
+| WHEN (Trigger) | 🟡 | Some lifecycle content (post-purchase, exit) |
+| WHERE (Channel) | ✅ | Email, link, web, mobile covered |
+| WHY (Use Case) | ✅ | Market research, HR, CX extensively covered |
+| HOW (Methodology) | ✅ | **Sample size calculator**, margin of error tools |
+| WHICH (Subject) | ✅ | Product, website, manager feedback |
+| FOR (Industry) | ✅ | Healthcare, education, nonprofit verticals |
+| VS (Competitive) | 🟡 | Some "vs" and alternative pages |
+| WITH (Integration) | ✅ | 200+ integrations, enterprise focus |
+| ABOUT (Attributes) | 🟡 | HIPAA available, but expensive enterprise only |
+
+**Key Gaps to Exploit:**
+1. **Expensive HIPAA** - enterprise pricing only ($$$)
+2. **No open-source option** - vendor lock-in concerns
+3. **Proprietary/closed** - can't self-host for data sovereignty
+4. **Heavy/complex** - not nimble for startups
+
+---
+
+### Qualtrics
+
+**Overview:** Enterprise XM platform. Premium pricing, academic/research focus.
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | ✅ | Customer, employee, citizen, patient |
+| WHAT (Construct) | ✅ | Deep XM constructs (CX, EX, BX, PX) |
+| WHEN (Trigger) | ✅ | Lifecycle triggers, journey moments |
+| WHERE (Channel) | ✅ | All channels including mobile SDK |
+| WHY (Use Case) | ✅ | Comprehensive use case coverage |
+| HOW (Methodology) | ✅ | Calculators, benchmarks, XM certifications |
+| WHICH (Subject) | ✅ | Extensive subject coverage |
+| FOR (Industry) | ✅ | Deep verticals: healthcare, gov, edu, finance |
+| VS (Competitive) | 🟡 | Limited direct competitor content |
+| WITH (Integration) | ✅ | Enterprise integrations (SAP, Salesforce) |
+| ABOUT (Attributes) | ✅ | Full compliance stack (HIPAA, FedRAMP, SOC2) |
+
+**Key Gaps to Exploit:**
+1. **Unaffordable for SMBs** - $$$$ enterprise pricing
+2. **No open-source** - proprietary platform
+3. **Overkill complexity** - too heavy for simple needs
+4. **No self-hosted option** - must use their cloud
+
+---
+
+### Hotjar
+
+**Overview:** In-product feedback + heatmaps. Now part of Contentsquare.
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | 🟡 | Website visitors, users |
+| WHAT (Construct) | 🟡 | NPS, CSAT in product, limited content |
+| WHEN (Trigger) | ✅ | Strong on-page, exit-intent triggers |
+| WHERE (Channel) | 🟡 | Website/in-app only, no email/link surveys |
+| WHY (Use Case) | 🟡 | Product feedback, UX research focus |
+| HOW (Methodology) | 🔴 | **NO CALCULATORS** |
+| WHICH (Subject) | 🟡 | Website, feature feedback |
+| FOR (Industry) | 🔴 | Generic, no industry-specific content |
+| VS (Competitive) | 🔴 | Minimal comparison content |
+| WITH (Integration) | 🟡 | ~40 integrations |
+| ABOUT (Attributes) | 🔴 | No HIPAA, limited compliance content |
+
+**Key Gaps to Exploit:**
+1. **No calculators or research tools**
+2. **Channel-limited** - website/app only
+3. **No HIPAA/healthcare** - can't serve regulated industries
+4. **No self-hosting**
+5. **Being absorbed into Contentsquare** - uncertainty
+
+---
+
+### Jotform
+
+**Overview:** Massive template library (20,000+). Form-first, survey secondary.
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | ✅ | Extensive intake forms by respondent type |
+| WHAT (Construct) | 🟡 | Less survey-methodology focused |
+| WHEN (Trigger) | 🟡 | Intake, application, registration |
+| WHERE (Channel) | ✅ | Link, embed, QR, kiosk modes |
+| WHY (Use Case) | ✅ | Strong on operational forms, HR, intake |
+| HOW (Methodology) | 🔴 | **NO CALCULATORS** - form-focused, not research |
+| WHICH (Subject) | ✅ | Very broad subject coverage |
+| FOR (Industry) | ✅ | Healthcare, education, legal, construction |
+| VS (Competitive) | 🟡 | Some alternative pages |
+| WITH (Integration) | ✅ | 100+ integrations |
+| ABOUT (Attributes) | ✅ | HIPAA option available (paid) |
+
+**Key Gaps to Exploit:**
+1. **Form-first, survey-second** - weak on research methodology
+2. **No open-source** - proprietary platform
+3. **Cluttered/overwhelming** - 20K templates = hard to navigate
+4. **No self-hosting option**
+
+---
+
+### Tally
+
+**Overview:** Free-first, Notion-like interface. Indie/startup favorite.
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | 🔴 | Minimal content/SEO focus |
+| WHAT (Construct) | 🔴 | No methodology content |
+| WHEN (Trigger) | 🔴 | Minimal trigger content |
+| WHERE (Channel) | 🟡 | Link, embed focus |
+| WHY (Use Case) | 🔴 | Limited use-case content |
+| HOW (Methodology) | ❌ | **ZERO calculators or research tools** |
+| WHICH (Subject) | 🔴 | Minimal |
+| FOR (Industry) | ❌ | No industry-specific pages |
+| VS (Competitive) | ❌ | No comparison content |
+| WITH (Integration) | 🟡 | Basic integrations (Notion, Zapier) |
+| ABOUT (Attributes) | 🔴 | No compliance, no self-hosting |
+
+**Key Gaps to Exploit:**
+1. **Zero SEO/content strategy** - massive opportunity
+2. **No compliance** - can't serve enterprise/regulated
+3. **No calculators, benchmarks, or research content**
+4. **No industry focus**
+5. **Product-only, no content moat**
+
+---
+
+### Sprig
+
+**Overview:** In-product surveys for UX research. PLG/product team focus.
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | 🟡 | Users, beta testers |
+| WHAT (Construct) | 🟡 | Feature adoption, usability |
+| WHEN (Trigger) | ✅ | Strong on in-product moments |
+| WHERE (Channel) | 🔴 | In-product only |
+| WHY (Use Case) | ✅ | Product feedback, feature prioritization |
+| HOW (Methodology) | 🔴 | Limited research tools |
+| WHICH (Subject) | 🟡 | Product, feature feedback |
+| FOR (Industry) | 🔴 | SaaS/tech only |
+| VS (Competitive) | 🔴 | Minimal |
+| WITH (Integration) | 🟡 | Product analytics (Segment, Amplitude) |
+| ABOUT (Attributes) | 🔴 | No HIPAA, limited compliance |
+
+**Key Gaps to Exploit:**
+1. **In-product only** - no email, link, website surveys
+2. **SaaS-focused** - ignores other industries
+3. **No calculators or research tools**
+4. **Expensive** - not accessible to early-stage startups
+
+---
+
+### Survicate
+
+**Overview:** Multi-channel feedback, SaaS-focused. Strong NPS/CSAT.
+
+| Ontology | Coverage | Notes |
+|----------|----------|-------|
+| WHO (Respondent) | ✅ | Customer, user, employee |
+| WHAT (Construct) | ✅ | Strong NPS, CSAT, CES content |
+| WHEN (Trigger) | ✅ | Good lifecycle trigger content |
+| WHERE (Channel) | ✅ | Email, in-app, website, mobile |
+| WHY (Use Case) | ✅ | Customer feedback, churn, product |
+| HOW (Methodology) | 🟡 | Some calculators, NPS sample size |
+| WHICH (Subject) | 🟡 | Product, website feedback |
+| FOR (Industry) | 🟡 | SaaS focus, some healthcare |
+| VS (Competitive) | ✅ | Strong "alternative" pages |
+| WITH (Integration) | ✅ | 40+ native integrations |
+| ABOUT (Attributes) | ✅ | HIPAA, GDPR compliant |
+
+**Key Gaps to Exploit:**
+1. **No open-source** - proprietary platform
+2. **No self-hosting** - cloud-only
+3. **Limited industry depth** - SaaS-centric
+4. **Weaker on research methodology** than Formbricks could be
+
+---
+
+### Strategic Gap Summary
+
+#### Market-Wide Gaps (Opportunities for Formbricks)
+
+| Gap Category | Gap Description | Competitors Missing This | Formbricks Advantage |
+|--------------|-----------------|-------------------------|---------------------|
+| **Self-Hosting** | Enterprise data sovereignty, regulated industries | All except LimeSurvey | ✅ Core differentiator |
+| **Open Source** | Transparency, customization, no vendor lock-in | All major players | ✅ AGPLv3, community-driven |
+| **Calculators** | NPS, sample size, margin of error, CES calculators | Typeform, Hotjar, Tally, Sprig, Jotform | 🎯 Build comprehensive calculator suite |
+| **Research-Backed Content** | Academic citations, validated methodologies | Most have generic content | 🎯 Cite CDC, ICPSR, academic sources |
+| **Affordable HIPAA** | Healthcare compliance without $$$$ pricing | SurveyMonkey, Qualtrics charge enterprise rates | ✅ Self-hosted HIPAA for SMBs |
+| **Industry Depth** | Deep vertical content (healthcare, gov, education) | Hotjar, Tally, Sprig | 🎯 Build regulated industry hubs |
+| **Benchmark Data** | Industry-specific NPS/CSAT benchmarks | Limited public data from competitors | 🎯 Crowdsource + publish benchmarks |
+
+---
+
+### Competitor Content Volume Estimates
+
+| Competitor | Templates | Question Pages | Industry Pages | Calculator Tools | Integration Pages | Comparison Pages |
+|------------|-----------|----------------|----------------|------------------|-------------------|------------------|
+| **SurveyMonkey** | 500+ | 100+ | 30+ | 5+ | 200+ | 20+ |
+| **Typeform** | 3,000+ | 50+ | 20+ | 0 | 100+ | 10+ |
+| **Qualtrics** | 200+ | 50+ | 40+ | 3+ | 100+ | 10+ |
+| **Jotform** | 20,000+ | 30+ | 50+ | 0 | 100+ | 15+ |
+| **Hotjar** | 40+ | 20+ | 5 | 0 | 40+ | 5+ |
+| **Tally** | 100+ | 0 | 0 | 0 | 20+ | 0 |
+| **Sprig** | 30+ | 10+ | 3 | 0 | 20+ | 5+ |
+| **Survicate** | 100+ | 30+ | 10+ | 2 | 40+ | 30+ |
+| **Formbricks (Current)** | 47 | ~0 | ~5 | 0 | ~10 | ~0 |
+| **Formbricks (Target Y1)** | 200+ | 100+ | 30+ | 10+ | 80+ | 30+ |
+
+---
+
+### Ontology Gap Heat Map
+
+Shows which ontologies are **underserved across the market** (biggest opportunities):
+
+```
+                    MARKET SATURATION (low = opportunity)
+
+Ontology          Low ◀────────────────────────▶ High
+─────────────────────────────────────────────────────
+WHO (Respondent)  ████████████████░░░░░░░░░░░░░░ [Moderate]
+WHAT (Construct)  █████████████████░░░░░░░░░░░░░ [Moderate]
+WHEN (Trigger)    ██████████░░░░░░░░░░░░░░░░░░░░ [LOW - OPPORTUNITY]
+WHERE (Channel)   ████████████████████░░░░░░░░░░ [High]
+WHY (Use Case)    ███████████████████░░░░░░░░░░░ [High]
+HOW (Methodology) ████████░░░░░░░░░░░░░░░░░░░░░░ [LOW - OPPORTUNITY]
+WHICH (Subject)   ██████████████░░░░░░░░░░░░░░░░ [Moderate]
+FOR (Industry)    ████████████░░░░░░░░░░░░░░░░░░ [Moderate - varies]
+VS (Competitive)  ██████░░░░░░░░░░░░░░░░░░░░░░░░ [LOW - OPPORTUNITY]
+WITH (Integration)████████████████████████░░░░░░ [High]
+ABOUT (Attributes)████████░░░░░░░░░░░░░░░░░░░░░░ [LOW - OPPORTUNITY]
+```
+
+**Highest-Opportunity Ontologies:**
+1. **HOW (Methodology)** - Calculators, benchmarks, research tools
+2. **ABOUT (Attributes)** - Self-hosted, open-source, compliance
+3. **VS (Competitive)** - Comparison pages, alternative pages
+4. **WHEN (Trigger)** - Lifecycle-specific survey content
+
+---
+
+### Strategic Recommendations
+
+#### Phase 1 Priority (Immediate Wins)
+
+1. **Build Calculator Suite**
+   - NPS Calculator (with benchmark comparison)
+   - Sample Size Calculator
+   - Margin of Error Calculator
+   - CSAT Calculator
+   - CES Calculator
+   - Survey ROI Calculator
+
+2. **Claim "Open Source Survey" Territory**
+   - `/open-source-survey-software`
+   - `/self-hosted-survey-platform`
+   - `/typeform-open-source-alternative`
+   - `/qualtrics-alternative-self-hosted`
+
+3. **Healthcare/Regulated Industry Pages**
+   - `/hipaa-compliant-survey-software` (compete with Jotform, SurveyMonkey)
+   - `/healthcare-survey-software`
+   - `/patient-experience-survey`
+   - `/government-survey-software`
+
+#### Phase 2 Priority (Build Moat)
+
+1. **Research-Backed Question Pages**
+   - Cite CDC Q-Bank, ICPSR, academic sources
+   - Include validation data, benchmarks
+   - "Best [X] survey questions" with methodology
+
+2. **Lifecycle/Trigger Content (Underserved)**
+   - `/onboarding-survey-questions`
+   - `/exit-interview-questions`
+   - `/post-purchase-survey-template`
+   - `/trial-feedback-survey`
+   - `/churn-survey-template`
+
+3. **Comparison Pages**
+   - `/formbricks-vs-typeform`
+   - `/formbricks-vs-surveymonkey`
+   - `/best-typeform-alternatives`
+   - `/surveymonkey-alternatives-2026`
+
+#### Phase 3 Priority (Scale)
+
+1. **Industry Benchmark Reports**
+   - Crowdsource NPS/CSAT data
+   - Publish annual benchmark reports
+   - Create embeddable benchmark widgets
+
+2. **Integration Pages at Scale**
+   - 80+ integration pages
+   - Setup guides, use cases, data flow diagrams
+
+3. **Long-Tail Combinations**
+   - `[industry]-[methodology]-survey`
+   - `[trigger]-[respondent]-questions`
+   - `[compliance]-[industry]-survey-software`
+
+---
+
+### Competitive Intelligence Sources
+
+| Competitor | Research Source | Notes |
+|------------|-----------------|-------|
+| Typeform | [typeform.com/templates](https://www.typeform.com/templates) | 3,000+ templates, category structure |
+| SurveyMonkey | [surveymonkey.com/templates](https://www.surveymonkey.com/templates/) | 500+ templates, calculator tools |
+| Qualtrics | [qualtrics.com/marketplace/survey-template](https://www.qualtrics.com/marketplace/survey-template/) | Enterprise focus, XM methodology |
+| Jotform | [jotform.com/form-templates](https://www.jotform.com/form-templates/) | 20,000+ templates, industry categories |
+| Hotjar | [hotjar.com/survey-templates](https://www.hotjar.com/survey-templates/) | 40+ templates, in-product focus |
+| Sprig | [sprig.com/template](https://sprig.com/template) | Product research templates |
+| Survicate | [survicate.com/survey-templates](https://survicate.com/survey-templates-examples/customer-feedback/) | NPS, CSAT focus |
+
+---
+
 ## Document History
 
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-02-10 | Initial document creation |
+| 1.1 | 2026-02-10 | Added comprehensive competitive intelligence section |
 
 ---
 
@@ -1631,12 +1995,24 @@ ABOUT (Entity Attributes)
 - [ ] "survey questions for [specific role]"
 - [ ] "[industry] customer feedback examples"
 - [ ] "how to ask for feedback [context]"
+- [ ] "NPS calculator"
+- [ ] "sample size calculator for surveys"
+- [ ] "open source survey software"
+- [ ] "self-hosted survey platform"
+- [ ] "HIPAA compliant survey tool free"
 
 ### Content Gaps Identified
--
+- Calculators (NPS, sample size, margin of error) - major gap across market
+- Self-hosted/open-source positioning - unique to Formbricks
+- Research-backed content with academic citations
+- Affordable HIPAA for SMBs
+- Lifecycle/trigger-specific survey content
 
 ### Competitor Moves to Track
--
+- Delighted sunsetting by June 2026 - opportunity to capture their users
+- Hotjar absorbed into Contentsquare - may create confusion
+- Tally has zero SEO strategy - wide open market segment
+- SurveyMonkey 2026 trends report on tariffs/pricing research
 
 ---
 
