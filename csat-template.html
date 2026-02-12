@@ -360,19 +360,36 @@
     </style>
 </head>
 <body>
+    <nav class="nav"><div class="nav-inner">
+        <a href="#" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>Formbricks</a>
+        <div class="nav-links"><a href="#">Templates</a><a href="#">Industry</a><a href="#">Integrations</a><a href="#">Pricing</a><a href="#">Docs</a></div>
+        <div class="nav-cta"><a href="#" class="btn btn-primary btn-sm">Get Started Free</a></div>
+    </div></nav>
 
-    <!-- Hero Section -->
+    <!-- ============ SECTION 1: HERO ============ -->
     <section class="hero">
-        <div class="container">
-            <span class="overline">Research-Validated CSAT Template</span>
-            <h1>Customer Satisfaction (CSAT)<br>Survey Template</h1>
-            <p class="lead">Free CSAT survey template with interactive demo, statistical significance calculator,<br>and industry benchmarks. Built on academic research, ready to deploy.</p>
-
-            <!-- Interactive 4-Step Survey Demo -->
-            <div class="survey-embed">
+        <div class="container hero-inner">
+            <p class="overline">CSAT Survey Template</p>
+            <h1 class="display">Customer Satisfaction (CSAT) Survey Template</h1>
+            <p class="body-lg">Research-backed 4-step CSAT survey with conditional follow-ups, 2026 industry benchmarks, and academic methodology review. Open source.</p>
+            <div class="btn-group">
+                <a href="https://app.formbricks.com/auth/signup" class="btn btn-primary">Use Template Free</a>
+                <a href="#survey-flow" class="btn btn-secondary">See the 4-Step Flow</a>
+            </div>
+            <!-- 4-Step Interactive Survey Demo -->
+            <div class="survey-embed" id="surveyDemo">
+                <div class="survey-embed-label">
+                    <span>Try the template</span>
+                    <div class="step-dots">
+                        <div class="step-dot active" id="dot1"></div>
+                        <div class="step-dot" id="dot2"></div>
+                        <div class="step-dot" id="dot3"></div>
+                        <div class="step-dot" id="dot4"></div>
+                    </div>
+                </div>
                 <!-- Step 1: Star Rating -->
                 <div class="survey-step active" id="step1">
-                    <div class="survey-question">How satisfied are you with your recent experience?</div>
+                    <p style="font-size:15px;font-weight:500;color:var(--text-primary);margin-bottom:var(--space-2);">How satisfied are you with your recent experience?</p>
                     <div class="star-rating" id="starRating">
                         <span class="star" data-value="1">⭐</span>
                         <span class="star" data-value="2">⭐</span>
@@ -388,50 +405,36 @@
 
                 <!-- Step 2: Conditional Follow-up -->
                 <div class="survey-step" id="step2">
-                    <div class="survey-question" id="followUpQuestion"></div>
+                    <p id="followUpQuestion" style="font-size:15px;font-weight:500;color:var(--text-primary);margin-bottom:var(--space-1);"></p>
+                    <p class="body-sm" style="color:var(--text-muted);">Select up to 3</p>
                     <div class="driver-chips" id="driverChips"></div>
-                    <button class="btn btn-primary" id="nextBtn" style="margin-top: 24px; display: none;">Next</button>
+                    <button class="survey-next" id="step2Next" disabled>Next</button>
                 </div>
 
                 <!-- Step 3: Optional Open Text -->
                 <div class="survey-step" id="step3">
-                    <div class="survey-question">Anything else you'd like to share? (optional)</div>
-                    <textarea style="width: 100%; min-height: 120px; padding: 16px; border: 1.5px solid var(--border-default); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 15px; margin-top: 16px; resize: vertical;" placeholder="Your feedback helps us improve..."></textarea>
-                    <button class="btn btn-primary" id="submitBtn" style="margin-top: 24px;">Submit</button>
+                    <p style="font-size:15px;font-weight:500;color:var(--text-primary);margin-bottom:var(--space-1);">Anything else you&rsquo;d like to share?</p>
+                    <p class="body-sm" style="color:var(--text-muted);">(optional)</p>
+                    <textarea class="survey-textarea" placeholder="Your feedback helps us improve..." id="openText"></textarea>
+                    <button class="survey-next" id="step3Next">Submit</button>
                 </div>
 
                 <!-- Step 4: Thank You -->
                 <div class="survey-step" id="step4">
-                    <div style="text-align: center;">
-                        <div style="font-size: 48px; margin-bottom: 16px;">🎉</div>
-                        <div class="survey-question" id="thankYouMessage"></div>
-                        <p style="color: var(--text-muted); margin-top: 12px;" id="thankYouDetails"></p>
-                        <button class="btn btn-secondary btn-sm" id="restartBtn" style="margin-top: 24px;">Start Over</button>
-                    </div>
-                </div>
-
-                <!-- Step Indicators -->
-                <div class="step-indicators">
-                    <div class="step-dot active"></div>
-                    <div class="step-dot"></div>
-                    <div class="step-dot"></div>
-                    <div class="step-dot"></div>
+                    <div id="thankYouContent" style="text-align:center;padding:var(--space-6) 0;"></div>
                 </div>
             </div>
-
-            <p style="font-size:12px;color:var(--text-muted);margin-top:20px;text-align:center;font-style:italic;">
-                Interactive demo: Try the 4-step flow with conditional branching logic
-            </p>
         </div>
     </section>
 
-    <!-- CSAT Calculator Section -->
-    <section class="section" style="background: var(--bg-surface);">
-        <div class="container">
+    <div class="container">
+
+        <!-- ============ SECTION 2: CSAT CALCULATOR ============ -->
+        <section class="section" id="calculator">
             <div class="section-header">
-                <span class="overline">Calculate Your Score</span>
-                <h2>CSAT Calculator + Statistical Significance</h2>
-                <p>Calculate your CSAT score with confidence intervals and determine if changes are statistically meaningful.</p>
+                <p class="overline">Interactive Tool</p>
+                <h2 class="h1">CSAT Calculator</h2>
+                <p class="body-lg">Enter your survey responses to calculate your Customer Satisfaction Score, confidence intervals, mean score, and compare against industry benchmarks.</p>
             </div>
 
             <div class="calculator">
@@ -534,15 +537,14 @@
                 <p>CSAT is calculated as: <strong>(4-star + 5-star responses) / Total responses × 100</strong>. This differs from average score, which weighs all ratings. <a href="#" class="citation">ACSI 2025</a> <a href="#" class="citation">Retently 2025</a></p>
             </div>
         </div>
-    </section>
+        </section>
 
-    <!-- Scale Selection Research Section -->
-    <section class="section">
-        <div class="container">
+        <!-- ============ SECTION 3: SCALE SELECTION RESEARCH ============ -->
+        <section class="section" id="scale-research">
             <div class="section-header">
-                <span class="overline">Psychometric Research</span>
-                <h2>Why 5-Point CSAT? Scale Selection Science</h2>
-                <p>Academic evidence for why 5-point scales outperform alternatives in customer satisfaction measurement.</p>
+                <p class="overline">Psychometric Research</p>
+                <h2 class="h1">Why 5-Point CSAT? Scale Selection Science</h2>
+                <p class="body-lg">Academic evidence for why 5-point scales outperform alternatives in customer satisfaction measurement.</p>
             </div>
 
             <div class="grid grid-3">
