@@ -1558,37 +1558,37 @@
             });
         }
 
-        // Next Button
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            const selected = document.querySelectorAll('.driver-chip.selected');
-            demoState.drivers = Array.from(selected).map(chip => chip.textContent);
-            goToStep(3);
-        });
+        // Next Button (step 2)
+        const step2NextBtn = document.getElementById('step2Next');
+        if (step2NextBtn) {
+            step2NextBtn.addEventListener('click', () => {
+                const selected = document.querySelectorAll('.driver-chip.selected');
+                demoState.drivers = Array.from(selected).map(chip => chip.textContent);
+                goToStep(3);
+            });
+        }
 
-        // Submit Button
-        document.getElementById('submitBtn').addEventListener('click', () => {
-            goToStep(4);
-            showThankYou();
-        });
+        // Submit Button (step 3)
+        const step3NextBtn = document.getElementById('step3Next');
+        if (step3NextBtn) {
+            step3NextBtn.addEventListener('click', () => {
+                goToStep(4);
+                showThankYou();
+            });
+        }
 
         // Show Thank You
         function showThankYou() {
             const message = thankYouMessages[demoState.segment];
-            document.getElementById('thankYouMessage').textContent = message.title;
-            document.getElementById('thankYouDetails').textContent = message.detail;
+            const thankYouContent = document.getElementById('thankYouContent');
+            if (thankYouContent) {
+                thankYouContent.innerHTML = `
+                    <div style="font-size:48px;margin-bottom:var(--space-4);">🎉</div>
+                    <h3 class="h3" style="margin-bottom:var(--space-2);">${message.title}</h3>
+                    <p class="body-sm" style="color:var(--text-muted);">${message.detail}</p>
+                `;
+            }
         }
-
-        // Restart Button
-        document.getElementById('restartBtn').addEventListener('click', () => {
-            demoState = {
-                currentStep: 1,
-                score: null,
-                segment: null,
-                drivers: []
-            };
-            stars.forEach(s => s.classList.remove('selected'));
-            goToStep(1);
-        });
 
         // Step Navigation
         function goToStep(stepNumber) {
