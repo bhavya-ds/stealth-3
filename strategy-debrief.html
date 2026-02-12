@@ -198,9 +198,10 @@
         }
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
             margin-top: 30px;
+            max-width: 1000px;
         }
         .skill-card {
             background: var(--bg-card);
@@ -518,6 +519,7 @@
             .container { padding: 20px; padding-top: calc(var(--header-height) + 20px); }
             .hero h2 { font-size: 1.8rem; }
             .hero p { font-size: 1rem; }
+            .skills-grid { grid-template-columns: 1fr; }
             .process-grid { grid-template-columns: 1fr; }
             .comparison-table { overflow-x: auto; }
         }
@@ -628,7 +630,7 @@
 
             <div class="ai-agents-card">
                 <h3>🤖 Our Proprietary Framework Stack</h3>
-                <p>We built three custom Claude Code skills that automate the entire discovery and analysis process. These aren't off-the-shelf SEO tools — they're frameworks built from first principles using academic research:</p>
+                <p>We built two custom Claude Code skills that automate the entire discovery and analysis process. These aren't off-the-shelf SEO tools — they're frameworks built from first principles using academic research:</p>
 
                 <div class="skills-grid">
                     <div class="skill-card">
@@ -643,13 +645,6 @@
                         <p><strong>What it does:</strong> Audits competitors for each query, calculates redundancy scores, identifies information gaps</p>
                         <p><strong>Why we need it:</strong> We need to know what's already been said before we write a single word. This agent extracts every claim/stat/source from top 10 results and tells us exactly what's saturated vs. what's a gap.</p>
                         <p><strong>Based on:</strong> Google's Information Gain Patent + GEO Study (Princeton/Georgia Tech, 2024) + TREC Nugget Evaluation</p>
-                    </div>
-
-                    <div class="skill-card">
-                        <h4>dissect</h4>
-                        <p><strong>What it does:</strong> Extracts complete design systems from websites (colors, spacing, typography, components)</p>
-                        <p><strong>Why we need it:</strong> Design consistency matters. This agent reads any website and outputs production-ready CSS variables matching their exact design system.</p>
-                        <p><strong>Output:</strong> CSS design tokens, component specs, spacing scales, typography systems</p>
                     </div>
                 </div>
 
@@ -790,7 +785,7 @@
                             <p>Once we have the component blueprint from Steps 2-3:</p>
                             <ul>
                                 <li>Claude Code agents write production HTML matching our design system</li>
-                                <li>/dissect ensures pixel-perfect design consistency across all pages</li>
+                                <li>Design tokens and component patterns ensure pixel-perfect consistency across all pages</li>
                                 <li>Interactive components (calculators, surveys, FAQs) are templated and reused</li>
                                 <li>Each page is validated for information gain thresholds before shipping</li>
                             </ul>
