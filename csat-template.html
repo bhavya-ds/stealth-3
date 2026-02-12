@@ -1742,9 +1742,13 @@
         });
 
         // FAQ Toggle
-        function toggleFaq(element) {
-            const faqItem = element.parentElement;
-            faqItem.classList.toggle('open');
+        function toggleFaq(btn) {
+            var item = btn.parentElement;
+            var answer = item.querySelector('.faq-a');
+            var icon = btn.querySelector('.faq-icon');
+            var isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+            if (isOpen) { answer.style.maxHeight = '0px'; answer.style.paddingBottom = '0'; icon.textContent = '+'; }
+            else { answer.style.maxHeight = answer.scrollHeight + 'px'; answer.style.paddingBottom = '16px'; icon.textContent = '\u2212'; }
         }
 
         // Initialize
