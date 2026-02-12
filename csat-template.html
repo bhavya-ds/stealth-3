@@ -1372,147 +1372,63 @@
 
             <div style="max-width: 800px; margin: 0 auto;">
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>What is CSAT and how is it different from NPS?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>CSAT (Customer Satisfaction Score) measures satisfaction with a specific interaction, product, or feature, typically on a 1-5 scale. NPS (Net Promoter Score) measures overall loyalty and likelihood to recommend on a 0-10 scale. CSAT is transactional and immediate; NPS is relationship-based and predictive of long-term loyalty.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>What is CSAT and how is it different from NPS?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">CSAT (Customer Satisfaction Score) measures satisfaction with a specific interaction, product, or feature, typically on a 1-5 scale. NPS (Net Promoter Score) measures overall loyalty and likelihood to recommend on a 0-10 scale. CSAT is transactional and immediate; NPS is relationship-based and predictive of long-term loyalty.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>What is a good CSAT score?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Generally, anything above 75% is considered good CSAT, though this varies by industry. Consulting averages 84%, ecommerce 82%, B2B SaaS 78%, while internet providers average 68%. Compare to your industry benchmark and track your trend over time rather than absolute numbers.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>What is a good CSAT score?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Generally, anything above 75% is considered good CSAT, though this varies by industry. Consulting averages 84%, ecommerce 82%, B2B SaaS 78%, while internet providers average 68%. Compare to your industry benchmark and track your trend over time rather than absolute numbers.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>How do you calculate CSAT?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>CSAT = (Number of satisfied responses / Total responses) × 100. On a 5-point scale, "satisfied" typically means 4-star and 5-star ratings. Example: 80 customers give 4-5 stars out of 100 total = 80% CSAT. This differs from average score, which weighs all ratings.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>How do you calculate CSAT?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">CSAT = (Number of satisfied responses / Total responses) × 100. On a 5-point scale, "satisfied" typically means 4-star and 5-star ratings. Example: 80 customers give 4-5 stars out of 100 total = 80% CSAT. This differs from average score, which weighs all ratings.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>When should I send CSAT surveys?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Send immediately after key interactions: support ticket closed, purchase delivered, onboarding completed, or feature usage. Kahneman's peak-end rule shows satisfaction ratings reflect peak and end moments, so timing at experience conclusion captures these accurately. Response rates are 3x higher within 24 hours vs. 7-day delay.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>When should I send CSAT surveys?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Send immediately after key interactions: support ticket closed, purchase delivered, onboarding completed, or feature usage. Kahneman's peak-end rule shows satisfaction ratings reflect peak and end moments, so timing at experience conclusion captures these accurately. Response rates are 3x higher within 24 hours vs. 7-day delay.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>Why use 5-point scale instead of 10-point?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Preston & Colman (2000) found 5-7 point scales maximize reliability while minimizing respondent burden. 10-point scales offer minimal precision gain but significantly lower completion rates, and respondents cluster at familiar numbers (5s, 10s) creating pseudo-precision. Use 5-point for satisfaction, reserve 10-point for NPS loyalty measurement.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>Why use 5-point scale instead of 10-point?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Preston & Colman (2000) found 5-7 point scales maximize reliability while minimizing respondent burden. 10-point scales offer minimal precision gain but significantly lower completion rates, and respondents cluster at familiar numbers (5s, 10s) creating pseudo-precision. Use 5-point for satisfaction, reserve 10-point for NPS loyalty measurement.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>How many survey responses do I need for valid CSAT?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>For ±5% margin of error at 95% confidence, you need ~288 responses (assuming 75% CSAT). With 30 responses, confidence intervals are ±15 points (60-90%), making small changes undetectable. Minimum 100 responses recommended for quarter-over-quarter tracking; 300+ for high-stakes decisions.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>How many survey responses do I need for valid CSAT?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">For ±5% margin of error at 95% confidence, you need ~288 responses (assuming 75% CSAT). With 30 responses, confidence intervals are ±15 points (60-90%), making small changes undetectable. Minimum 100 responses recommended for quarter-over-quarter tracking; 300+ for high-stakes decisions.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>Can I compare CSAT across countries?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Not directly. Harzing (2006) found Japanese respondents score 15-20 points lower than US respondents for identical satisfaction due to cultural midpoint bias. Use within-country trends (quarter-over-quarter change) instead of absolute scores. Consider separate benchmarks by region or apply cultural adjustment factors.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>Can I compare CSAT across countries?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Not directly. Harzing (2006) found Japanese respondents score 15-20 points lower than US respondents for identical satisfaction due to cultural midpoint bias. Use within-country trends (quarter-over-quarter change) instead of absolute scores. Consider separate benchmarks by region or apply cultural adjustment factors.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>Should I use CSAT alone or combine with other metrics?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Combine metrics. De Haan et al. (2015) found that combining CSAT (satisfaction), NPS (loyalty), and CES (effort) explains 23% more variance in retention than any single metric. Use CSAT for transactional feedback, NPS for relationship health, and CES for process optimization.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>Should I use CSAT alone or combine with other metrics?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Combine metrics. De Haan et al. (2015) found that combining CSAT (satisfaction), NPS (loyalty), and CES (effort) explains 23% more variance in retention than any single metric. Use CSAT for transactional feedback, NPS for relationship health, and CES for process optimization.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>What follow-up questions should I ask after CSAT rating?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Use conditional branching: Low scores (1-2) → "What disappointed you?" with driver chips (Speed, Quality, Support, etc.). Neutral scores (3) → "What would make this a 5-star experience?" High scores (4-5) → "What did you enjoy most?" Keep open text optional to avoid breakoff. Driver chips provide structured insights while maintaining completion rates.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>What follow-up questions should I ask after CSAT rating?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Use conditional branching: Low scores (1-2) → "What disappointed you?" with driver chips (Speed, Quality, Support, etc.). Neutral scores (3) → "What would make this a 5-star experience?" High scores (4-5) → "What did you enjoy most?" Keep open text optional to avoid breakoff. Driver chips provide structured insights while maintaining completion rates.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>How often should I survey the same customer?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Space transactional CSAT surveys by at least 1 week. Survey fatigue reduces response rates by 40% when sending within 7 days of previous survey. Limit relationship CSAT to quarterly or annual. Use response rate monitoring to detect fatigue early — if rates drop below 20%, you're over-surveying.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>How often should I survey the same customer?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Space transactional CSAT surveys by at least 1 week. Survey fatigue reduces response rates by 40% when sending within 7 days of previous survey. Limit relationship CSAT to quarterly or annual. Use response rate monitoring to detect fatigue early — if rates drop below 20%, you're over-surveying.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>What's the difference between CSAT score and average score?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>CSAT score = (4-star + 5-star responses) / Total × 100 (percentage satisfied). Average score = sum of all ratings / total responses (mean rating). Example: 50×5-star, 30×4-star, 20×1-star = 80% CSAT but 4.1 average. CSAT is binary (satisfied/not), average weighs all ratings. Both are useful for different insights.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>What's the difference between CSAT score and average score?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">CSAT score = (4-star + 5-star responses) / Total × 100 (percentage satisfied). Average score = sum of all ratings / total responses (mean rating). Example: 50×5-star, 30×4-star, 20×1-star = 80% CSAT but 4.1 average. CSAT is binary (satisfied/not), average weighs all ratings. Both are useful for different insights.</p></div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <h4>How do I improve my CSAT score?</h4>
-                        <div class="faq-icon">↓</div>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            <p>Analyze driver chip data to identify root causes. Low scores due to "Speed" → optimize response times. Low scores from "Quality" → product improvements. Establish closed-loop follow-up: contact 1-2 star respondents within 24 hours, route feedback to relevant teams, track actions taken. Most importantly: measure statistically significant changes (n≥100) to avoid chasing noise.</p>
-                        </div>
-                    </div>
+                    <button class="faq-q" onclick="toggleFaq(this)"><span>How do I improve my CSAT score?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-a"><p class="body-sm">Analyze driver chip data to identify root causes. Low scores due to "Speed" → optimize response times. Low scores from "Quality" → product improvements. Establish closed-loop follow-up: contact 1-2 star respondents within 24 hours, route feedback to relevant teams, track actions taken. Most importantly: measure statistically significant changes (n≥100) to avoid chasing noise.</p></div>
                 </div>
             </div>
         </div>
@@ -1822,7 +1738,7 @@
         });
 
         // FAQ Toggle
-        function toggleFAQ(element) {
+        function toggleFaq(element) {
             const faqItem = element.parentElement;
             faqItem.classList.toggle('open');
         }
