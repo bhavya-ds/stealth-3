@@ -199,12 +199,109 @@
         .checklist li { padding: 8px 0; padding-left: 28px; position: relative; font-size: 15px; color: var(--text-secondary); }
         .checklist li::before { content: ""; position: absolute; left: 0; top: 13px; width: 16px; height: 16px; border-radius: 50%; background: var(--accent-soft); border: 1px solid var(--border-accent); }
         .checklist li::after { content: ""; position: absolute; left: 5px; top: 18px; width: 6px; height: 3px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
-        .mistake-card { padding: var(--space-6); background: var(--bg-page); border: 1px solid var(--border-default); border-radius: var(--radius-lg); margin-bottom: var(--space-4); box-shadow: var(--elevation-1); transition: box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
+        .mistake-card {
+            position: relative;
+            padding: var(--space-6);
+            background: var(--bg-page);
+            border: 1px solid var(--border-default);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-4);
+            box-shadow: var(--elevation-1);
+            transition: box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+        }
         .mistake-card:hover { box-shadow: var(--elevation-2); border-color: var(--border-hover); transform: translateY(-1px); }
-        .mistake-card .mistake-num { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--error); margin-bottom: var(--space-2); }
-        .mistake-card h4 { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: var(--space-3); }
-        .mistake-card .fix { margin-top: var(--space-4); padding: var(--space-4); background: rgba(22,163,74,0.05); border-radius: var(--radius-md); border-left: 3px solid var(--success); }
-        .mistake-card .fix-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--success); margin-bottom: var(--space-2); }
+        .mistake-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+        .mistake-num {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(220,38,38,0.08);
+            border: 1px solid rgba(220,38,38,0.2);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--error);
+        }
+        .mistake-card h4 {
+            flex: 1;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            padding-top: 2px;
+        }
+        .mistake-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-4);
+        }
+        .mistake-citation {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            background: rgba(37,99,235,0.06);
+            border: 1px solid rgba(37,99,235,0.15);
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--info);
+            margin-left: 6px;
+        }
+        .mistake-citation::before {
+            content: '📄';
+            font-size: 10px;
+        }
+        .fix {
+            display: flex;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background: rgba(22,163,74,0.04);
+            border: 1px solid rgba(22,163,74,0.15);
+            border-radius: var(--radius-md);
+        }
+        .fix-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--success);
+            border-radius: var(--radius-sm);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .fix-icon::before {
+            content: '✓';
+        }
+        .fix-content {
+            flex: 1;
+        }
+        .fix-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--success);
+            margin-bottom: var(--space-2);
+        }
+        .fix-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
         .warning-box { padding: var(--space-4); background: rgba(217,119,6,0.06); border: 1px solid rgba(217,119,6,0.2); border-radius: var(--radius-md); font-size: 13px; color: var(--warning); }
         .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-8); }
         .stat-box { text-align: center; padding: var(--space-6); background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: var(--radius-lg); transition: box-shadow var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }
@@ -756,17 +853,177 @@
                 <h2 class="h1">10 Common NPS Mistakes</h2>
                 <p class="body-lg">Research-backed pitfalls that skew your NPS data &mdash; with academic citations and fixes.</p>
             </div>
-            <div class="mistake-card"><div class="mistake-num">#1</div><h4>Surveying Too Frequently</h4><p class="body-sm">Response rates drop 40% after the 3rd survey in 90 days. Brosnan et al. (2021) in <em>IJMR</em> confirmed that reducing survey frequency increases engagement and accuracy. <span class="cite">Brosnan et al. 2021</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Relationship NPS: maximum quarterly. Transactional: only after key events. Use Formbricks&rsquo; response cooldown to enforce automatically.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#2</div><h4>Not Segmenting Results</h4><p class="body-sm">A single NPS hides 2-3x variation between segments. De Haan et al. (2015) showed combining segmented metrics improves prediction. <span class="cite">Int. J. Research in Marketing 2015</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Segment by plan tier, customer tenure, use case, and geography. Track each segment&rsquo;s NPS independently.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#3</div><h4>Ignoring Passives (7-8)</h4><p class="body-sm">Passives have 2x the lifetime value of detractors. Eskildsen &amp; Kristensen (2011) noted the NPS formula loses information by collapsing scores into three categories &mdash; a 6 and a 0 are treated identically. <span class="cite">Eskildsen &amp; Kristensen 2011</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Ask passives: &ldquo;What would make you a 9 or 10?&rdquo; Track mean score alongside NPS to capture passive movements.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#4</div><h4>Relying on Open Text Alone</h4><p class="body-sm">Bettencourt &amp; Houston (2024) in <em>IJMR</em> found open-ended comments have only <strong>low-to-moderate convergence</strong> with what actually drives NPS scores. <span class="cite">Bettencourt &amp; Houston 2024</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Add closed-ended driver chips (select 1-3 reasons) before the open-text follow-up. This captures structural drivers that free text misses.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#5</div><h4>Wrong Timing &amp; Question Order</h4><p class="body-sm">Thau (2021) and van de Walle &amp; van Ryzin (2011) showed asking attribute questions <em>before</em> the NPS question <strong>depresses the overall score</strong>. Monday AM delivers 38% lower response rates vs Tuesday 10am. <span class="cite">Public Administration 2021</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Place NPS as question #1. Send Tuesday-Wednesday, 9am-12pm in the recipient&rsquo;s timezone.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#6</div><h4>Not Closing the Loop</h4><p class="body-sm">Knox &amp; Van Oest (2014) in the <em>Journal of Marketing</em> found the financial benefits of handling complaints outweigh costs. Gelbrich &amp; Roschk (2011) in <em>Journal of Service Research</em> showed recovery effectiveness degrades with time. <span class="cite">JM 2014; JSR 2011</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Auto-alert your team via Slack/email on detractor responses. Set a 48-hour SLA for high-value accounts.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#7</div><h4>Incentivizing Responses</h4><p class="body-sm">Offering survey completion incentives inflates NPS by 15-25 points, completely invalidating any benchmarking or trend analysis. <span class="cite">Journal of Marketing Research</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Never incentivize NPS. If response rates are low, fix timing and channel instead.</p></div></div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">1</div>
+                    <h4>Surveying Too Frequently</h4>
+                </div>
+                <div class="mistake-description">
+                    Response rates drop 40% after the 3rd survey in 90 days. Brosnan et al. (2021) in <em>IJMR</em> confirmed that reducing survey frequency increases engagement and accuracy.
+                    <span class="mistake-citation">Brosnan et al. 2021</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Relationship NPS: maximum quarterly. Transactional: only after key events. Use Formbricks' response cooldown to enforce automatically.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">2</div>
+                    <h4>Not Segmenting Results</h4>
+                </div>
+                <div class="mistake-description">
+                    A single NPS hides 2-3x variation between segments. De Haan et al. (2015) showed combining segmented metrics improves prediction.
+                    <span class="mistake-citation">IJRM 2015</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Segment by plan tier, customer tenure, use case, and geography. Track each segment's NPS independently.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">3</div>
+                    <h4>Ignoring Passives (7-8)</h4>
+                </div>
+                <div class="mistake-description">
+                    Passives have 2x the lifetime value of detractors. Eskildsen & Kristensen (2011) noted the NPS formula loses information by collapsing scores into three categories — a 6 and a 0 are treated identically.
+                    <span class="mistake-citation">Eskildsen & Kristensen 2011</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Ask passives: "What would make you a 9 or 10?" Track mean score alongside NPS to capture passive movements.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">4</div>
+                    <h4>Relying on Open Text Alone</h4>
+                </div>
+                <div class="mistake-description">
+                    Bettencourt & Houston (2024) in <em>IJMR</em> found open-ended comments have only <strong>low-to-moderate convergence</strong> with what actually drives NPS scores.
+                    <span class="mistake-citation">Bettencourt & Houston 2024</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Add closed-ended driver chips (select 1-3 reasons) before the open-text follow-up. This captures structural drivers that free text misses.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">5</div>
+                    <h4>Wrong Timing & Question Order</h4>
+                </div>
+                <div class="mistake-description">
+                    Thau (2021) and van de Walle & van Ryzin (2011) showed asking attribute questions <em>before</em> the NPS question <strong>depresses the overall score</strong>. Monday AM delivers 38% lower response rates vs Tuesday 10am.
+                    <span class="mistake-citation">Public Admin 2021</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Place NPS as question #1. Send Tuesday-Wednesday, 9am-12pm in the recipient's timezone.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">6</div>
+                    <h4>Not Closing the Loop</h4>
+                </div>
+                <div class="mistake-description">
+                    Knox & Van Oest (2014) in the <em>Journal of Marketing</em> found the financial benefits of handling complaints outweigh costs. Gelbrich & Roschk (2011) in <em>Journal of Service Research</em> showed recovery effectiveness degrades with time.
+                    <span class="mistake-citation">JM 2014; JSR 2011</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Auto-alert your team via Slack/email on detractor responses. Set a 48-hour SLA for high-value accounts.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">7</div>
+                    <h4>Incentivizing Responses</h4>
+                </div>
+                <div class="mistake-description">
+                    Offering survey completion incentives inflates NPS by 15-25 points, completely invalidating any benchmarking or trend analysis.
+                    <span class="mistake-citation">JMR</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Never incentivize NPS. If response rates are low, fix timing and channel instead.</div>
+                    </div>
+                </div>
+            </div>
             <!-- NEW: 3 academically-sourced mistakes -->
-            <div class="mistake-card"><div class="mistake-num">#8</div><h4>Using Sliders Instead of Radio Buttons</h4><p class="body-sm">Funke et al. (2011) found slider scales <strong>negatively affect response rates</strong>, especially on mobile. Bosch et al. (2019) in <em>Social Science Computer Review</em> found <strong>no meaningful quality advantage</strong> of sliders over radio buttons. <span class="cite">Funke 2011; SSCR 2019</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Always use radio buttons or clickable number tiles for the 0-10 scale. Never use slider/drag interfaces.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#9</div><h4>Making Open-Text Follow-Up Mandatory</h4><p class="body-sm">Hadler (2025) in <em>Sociological Methods &amp; Research</em> found that mandatory open-ended probes <strong>increase survey breakoff and backtracking</strong>. Forcing respondents to type explanations reduces completion rates. <span class="cite">Sociological Methods &amp; Research 2025</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Always mark open-text follow-ups as (optional). Use closed-ended drivers as the primary diagnostic tool.</p></div></div>
-            <div class="mistake-card"><div class="mistake-num">#10</div><h4>Comparing NPS Across Cultures Without Normalization</h4><p class="body-sm">Harzing (2006) showed power distance, collectivism, and uncertainty avoidance systematically skew NPS across 26 countries. A &ldquo;good&rdquo; NPS in Japan (-47 average) means something entirely different than in India (+51 average). <span class="cite">IJCCM 2006; XM Institute</span></p><div class="fix"><div class="fix-label">The Fix</div><p class="body-sm" style="color:var(--text-secondary);">Never compare raw NPS across countries. Use country-level baselines or cultural calibration. Consider region-specific Promoter thresholds (e.g., European NPS uses 8+ instead of 9+).</p></div></div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">8</div>
+                    <h4>Using Sliders Instead of Radio Buttons</h4>
+                </div>
+                <div class="mistake-description">
+                    Funke et al. (2011) found slider scales <strong>negatively affect response rates</strong>, especially on mobile. Bosch et al. (2019) in <em>Social Science Computer Review</em> found <strong>no meaningful quality advantage</strong> of sliders over radio buttons.
+                    <span class="mistake-citation">Funke 2011; SSCR 2019</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Always use radio buttons or clickable number tiles for the 0-10 scale. Never use slider/drag interfaces.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">9</div>
+                    <h4>Making Open-Text Follow-Up Mandatory</h4>
+                </div>
+                <div class="mistake-description">
+                    Hadler (2025) in <em>Sociological Methods & Research</em> found that mandatory open-ended probes <strong>increase survey breakoff and backtracking</strong>. Forcing respondents to type explanations reduces completion rates.
+                    <span class="mistake-citation">SMR 2025</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Always mark open-text follow-ups as (optional). Use closed-ended drivers as the primary diagnostic tool.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mistake-card">
+                <div class="mistake-card-header">
+                    <div class="mistake-num">10</div>
+                    <h4>Comparing NPS Across Cultures Without Normalization</h4>
+                </div>
+                <div class="mistake-description">
+                    Harzing (2006) showed power distance, collectivism, and uncertainty avoidance systematically skew NPS across 26 countries. A "good" NPS in Japan (-47 average) means something entirely different than in India (+51 average).
+                    <span class="mistake-citation">IJCCM 2006; XM Institute</span>
+                </div>
+                <div class="fix">
+                    <div class="fix-icon"></div>
+                    <div class="fix-content">
+                        <div class="fix-label">The Fix</div>
+                        <div class="fix-text">Never compare raw NPS across countries. Use country-level baselines or cultural calibration. Consider region-specific Promoter thresholds (e.g., European NPS uses 8+ instead of 9+).</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ============ SECTION 10: ANALYSIS FRAMEWORK (+ MULTI-METRIC) ============ -->
